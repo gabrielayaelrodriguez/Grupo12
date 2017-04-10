@@ -6,6 +6,10 @@ public class Viaje {
 	String origen;
 	float costo;
 	Date fecha;
+	private Calificacion calificaciones[];
+	private Pasajero pasajeros[];
+	private Conductor conductor;
+	
 	public boolean isFinalizado() {
 		return finalizado;
 	}
@@ -41,6 +45,24 @@ public class Viaje {
 	}
 	public void setMax_pasajeros(int max_pasajeros) {
 		this.max_pasajeros = max_pasajeros;
+	}
+	public Calificacion[] getCalificaciones() {
+		return calificaciones;
+	}
+	public void setCalificaciones(Calificacion calificaciones[]) {
+		this.calificaciones = calificaciones;
+	}
+	public Pasajero[] getPasajeros() {
+		return pasajeros;
+	}
+	public void setPasajeros(Pasajero pasajeros[]) {
+		this.pasajeros = pasajeros;
+	}
+	public Conductor getConductor() {
+		return conductor;
+	}
+	public void setConductor(Conductor conductor) {
+		this.conductor = conductor;
 	}
 	int max_pasajeros;
 
