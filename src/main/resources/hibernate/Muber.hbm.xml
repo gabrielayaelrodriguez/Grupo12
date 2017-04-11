@@ -1,0 +1,10 @@
+<hibernate-mapping package="java">
+	<class name="Muber" table="MUBER">
+		<id name="IdMuber" column="ID_MUBER">
+			  <generator class="native"/>
+		</id>
+	<property name="conductores" />
+	<property name="pasajeros" />
+	<property name="viajes" />
+	</class>
+</hibernate-mapping>

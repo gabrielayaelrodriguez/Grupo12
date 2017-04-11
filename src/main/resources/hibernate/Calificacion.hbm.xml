@@ -1,0 +1,9 @@
+<hibernate-mapping package="java">
+	<class name="Calificacion" table="CALIFICACION">
+		<id name="IdCalificacion" column="ID_CALIFICACION">
+			  <generator class="native"/>
+		</id>
+	<property name="puntaje" not-null="true"/>
+	<property name="hecha_por"/>
+	</class>
+</hibernate-mapping>

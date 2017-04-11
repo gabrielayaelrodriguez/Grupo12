@@ -1,0 +1,15 @@
+<hibernate-mapping package="java">
+	<class name="Viaje" table="VIAJE">
+		<id name="IdViaje" column="ID_VIAJE">
+			  <generator class="native"/>
+		</id>
+	<property name="finalizado" not-null="true"/>
+	<property name="origen" not-null="true"/>
+	<property name="destino" not-null="true"/>
+	<property name="costo" not-null="true"/>
+	<property name="fecha" not-null="true"/>
+	<property name="calificaciones" not-null="true"/>
+	<property name="pasajeros" not-null="true"/>
+	<property name="conductor" not-null="true"/>
+	</class>
+</hibernate-mapping>

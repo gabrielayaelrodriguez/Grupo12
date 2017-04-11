@@ -1,0 +1,9 @@
+<hibernate-mapping package="java">
+	<class name="Pasajero" table="PASAJERO">
+		<id name="IdUsuario" column="ID_USUARIO">
+			  <generator class="native"/>
+		</id>
+	<property name="credito" not-null="true" />
+	
+	</class>
+</hibernate-mapping>

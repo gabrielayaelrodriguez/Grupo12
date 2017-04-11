@@ -2,7 +2,7 @@ import java.sql.Date;
 
 public class Usuario {
 String nombre;
-String contraseña;
+String contrasena;
 Date f_ingreso;
 public String getNombre() {
 	return nombre;
@@ -10,10 +10,10 @@ public String getNombre() {
 public void setNombre(String nombre) {
 	this.nombre = nombre;
 }
-public String getContraseña() {
+public String getContrasena() {
 	return contraseña;
 }
-public void setContraseña(String contraseña) {
+public void setContrasena(String contraseña) {
 	this.contraseña = contraseña;
 }
 public Date getF_ingreso() {
