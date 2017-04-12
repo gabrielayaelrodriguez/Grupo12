@@ -1,7 +1,17 @@
+package clases.paquete;
 
 public class Calificacion {
-int puntaje;
+	
+private int id_calificacion;
+private int puntaje;
 private Pasajero hecha_por;
+
+public int getId_Calificacion() {
+	return id_calificacion;
+}
+public void setId_Calificacion(int id) {
+	this.id_calificacion = id;
+}
 
 public int getPuntaje() {
 	return puntaje;

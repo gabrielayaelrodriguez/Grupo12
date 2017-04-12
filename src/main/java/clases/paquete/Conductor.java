@@ -1,3 +1,4 @@
+package clases.paquete;
 
 public class Conductor extends Usuario {
 	private Viaje viajes[];

@@ -1,15 +1,23 @@
+package clases.paquete;
 import java.sql.Date;
 
 public class Viaje {
-	boolean finalizado;
-	String destino;
-	String origen;
-	float costo;
-	Date fecha;
+	private int id_viaje;
+	private boolean finalizado;
+	private String destino;
+	private String origen;
+	private float costo;
+	private Date fecha;
 	private Calificacion calificaciones[];
 	private Pasajero pasajeros[];
 	private Conductor conductor;
 	
+	public int getId_viaje() {
+		return id_viaje;
+	}
+	public void setId_viaje(int id_viaje) {
+		this.id_viaje = id_viaje;
+	}
 	public boolean isFinalizado() {
 		return finalizado;
 	}

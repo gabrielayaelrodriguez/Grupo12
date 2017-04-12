@@ -1,3 +1,4 @@
+package clases.paquete;
 
 public class Pasajero extends Usuario {
 	int credito;
