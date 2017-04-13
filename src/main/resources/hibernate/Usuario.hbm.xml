@@ -1,6 +1,6 @@
 <hibernate-mapping package="java">
 	<class name="Usaurio" table="USUARIO">
-		
+
 		<id name="IdUsaurio" column="ID_USUARIO">
 			  <generator class="native"/>
 		</id>
@@ -8,5 +8,32 @@
 		<property name="nombre" not-null="true"/>
 		<property name="contrasena" not-null="true"/>
 		<property name="f_ingreso" not-null="true"/>
+
+		<union-subclass name="Pasajero" table="USUARIO_PASAJERO">
+			<property name="credito" not-null="true" />
+
+			<set name="viajes" cascade="all">
+				<key column="ID_USUARIO"
+				not-null="true"/>
+				<one-to-many class="Viaje"/>
+			</set>
+
+			<set name="calificaciones" cascade="all">
+				<key column="ID_USUARIO"
+				not-null="true"/>
+				<one-to-many class="Calificacion"/>
+			</set>
+
+		</union-subclass>
+
+		<union-subclass name="Conductor" table="USUARIO_CONDUCTOR">
+			<set name="viajes" cascade="all">
+				<key column="ID_USUARIO"
+				not-null="true"/>
+				<one-to-many class="Viaje"/>
+			</set>
+
+		</union-subclass>
+		
 	</class>
 </hibernate-mapping>
