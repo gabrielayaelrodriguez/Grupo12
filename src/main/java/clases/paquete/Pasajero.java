@@ -1,7 +1,9 @@
 package clases.paquete;
 
 public class Pasajero extends Usuario {
-	int credito;
+	private int credito;
+	private Viaje viajes[];
+
 	public int getCredito() {
 		return credito;
 	}
@@ -9,8 +11,6 @@ public class Pasajero extends Usuario {
 	public void setCredito(int credito) {
 		this.credito = credito;
 	}
-
-	private Viaje viajes[];
 
 	public Viaje[] getViajes() {
 		return viajes;

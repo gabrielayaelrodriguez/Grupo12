@@ -3,8 +3,24 @@
 		<id name="IdMuber" column="ID_MUBER">
 			  <generator class="native"/>
 		</id>
-	<property name="conductores" />
-	<property name="pasajeros" />
-	<property name="viajes" />
+	
+	<set name="conductores" cascade="all">
+		<key column="ID_MUBER"
+		not-null="true"/>
+		<one-to-many class="Conductor"/>
+	</set>
+
+	<set name="pasajeros" cascade="all">
+		<key column="ID_MUBER"
+		not-null="true"/>
+		<one-to-many class="Pasajero"/>
+	</set>
+
+	<set name="viajes" cascade="all">
+		<key column="ID_MUBER"
+		not-null="true"/>
+		<one-to-many class="Viaje"/>
+	</set>
+
 	</class>
 </hibernate-mapping>

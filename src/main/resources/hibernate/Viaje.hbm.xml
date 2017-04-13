@@ -3,13 +3,24 @@
 		<id name="IdViaje" column="ID_VIAJE">
 			  <generator class="native"/>
 		</id>
-	<property name="finalizado" not-null="true"/>
-	<property name="origen" not-null="true"/>
-	<property name="destino" not-null="true"/>
-	<property name="costo" not-null="true"/>
-	<property name="fecha" not-null="true"/>
-	<property name="calificaciones" not-null="true"/>
-	<property name="pasajeros" not-null="true"/>
-	<property name="conductor" not-null="true"/>
+		<property name="finalizado" not-null="true"/>
+		<property name="origen" not-null="true"/>
+		<property name="destino" not-null="true"/>
+		<property name="costo" not-null="true"/>
+		<property name="fecha" not-null="true"/>
+		
+
+		<set name="calificaciones" cascade="all">
+		<key column="ID_VIAJE"
+		not-null="true"/>
+		<one-to-many class="Calificacion"/>
+		</set>
+
+		<set name="pasajeros" cascade="all">
+		<key column="ID_VIAJE"
+		not-null="true"/>
+		<one-to-many class="Pasajero"/>
+		</set>
+
 	</class>
 </hibernate-mapping>

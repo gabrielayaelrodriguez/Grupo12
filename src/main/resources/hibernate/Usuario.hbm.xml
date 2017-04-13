@@ -1,10 +1,12 @@
 <hibernate-mapping package="java">
 	<class name="Usaurio" table="USUARIO">
+		
 		<id name="IdUsaurio" column="ID_USUARIO">
 			  <generator class="native"/>
 		</id>
-	<property name="nombre" not-null="true"/>
-	<property name="contrasena" not-null="true"/>
-	<property name="f_ingreso" not-null="true"/>
+
+		<property name="nombre" not-null="true"/>
+		<property name="contrasena" not-null="true"/>
+		<property name="f_ingreso" not-null="true"/>
 	</class>
 </hibernate-mapping>
