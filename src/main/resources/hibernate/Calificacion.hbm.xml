@@ -1,9 +1,15 @@
-<hibernate-mapping package="java">
+<hibernate-mapping package="clases.paquete">
 	<class name="Calificacion" table="CALIFICACION">
 
 		<id name="id_calificacion" column="ID_CALIFICACION">
 			  <generator class="native"/>
 		</id>
+		<!-- muchos calificaciones para un pasajero -->
+		<many-to-one name="hecha_por"
+		 	column="ID_USUARIO"
+			unique="true"
+			not-null="true"
+			cascade="all" />
 
 		<property name="puntaje" not-null="true"/>
 		

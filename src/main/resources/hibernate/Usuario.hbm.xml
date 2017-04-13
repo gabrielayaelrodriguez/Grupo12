@@ -1,4 +1,4 @@
-<hibernate-mapping package="java">
+<hibernate-mapping package="clases.paquete">
 	<class name="Usaurio" table="USUARIO">
 
 		<id name="IdUsaurio" column="ID_USUARIO">
@@ -12,26 +12,23 @@
 		<union-subclass name="Pasajero" table="USUARIO_PASAJERO">
 			<property name="credito" not-null="true" />
 
-			<set name="viajes" cascade="all">
-				<key column="ID_USUARIO"
-				not-null="true"/>
-				<one-to-many class="Viaje"/>
-			</set>
+		<set name="viajes" table="VIAJE_PASAJERO" inverse="true">
+			<key column="ID_USUARIO"/>
+			<many-to-many column="ID_VIAJE" class="Viaje"/>
+		</set>
 
-			<set name="calificaciones" cascade="all">
-				<key column="ID_USUARIO"
-				not-null="true"/>
-				<one-to-many class="Calificacion"/>
-			</set>
+		<set name="calificaciones" cascade="all">
+			<key column="ID_CALIFICACION" not-null="true"/>
+			<one-to-many class="Calificacion"/>
+		</set>
 
 		</union-subclass>
 
 		<union-subclass name="Conductor" table="USUARIO_CONDUCTOR">
-			<set name="viajes" cascade="all">
-				<key column="ID_USUARIO"
-				not-null="true"/>
+			<set name="viajes" inverse="true" cascade="all">
+				<key column="ID_USUARIO"/>
 				<one-to-many class="Viaje"/>
-			</set>
+            </set>
 
 		</union-subclass>
 		

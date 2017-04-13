@@ -7,14 +7,13 @@
 
 		<property name="credito" not-null="true" />
 
-		<set name="viajes" cascade="all">
-			<key column="ID_USUARIO"
-			not-null="true"/>
-			<one-to-many class="Viaje"/>
+		<set name="viajes" table="VIAJE_PASAJERO" inverse="true">
+			<key column="ID_USUARIO"/>
+			<many-to-many column="ID_VIAJE" class="Viaje"/>
 		</set>
 
 		<set name="calificaciones" cascade="all">
-			<key column="ID_USUARIO"
+			<key column="ID_CALIFICACION"
 			not-null="true"/>
 			<one-to-many class="Calificacion"/>
 		</set>

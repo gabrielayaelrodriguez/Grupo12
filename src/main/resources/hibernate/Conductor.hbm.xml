@@ -4,10 +4,9 @@
 			  <generator class="native"/>
 		</id>
 		
-		<set name="viajes" cascade="all">
-			<key column="ID_USUARIO"
-			not-null="true"/>
-			<one-to-many class="Viaje"/>
-		</set>
+		<set name="viajes" inverse="true" cascade="all">
+				<key column="ID_USUARIO"/>
+				<one-to-many class="Viaje"/>
+        </set>
 	</class>
 </hibernate-mapping>

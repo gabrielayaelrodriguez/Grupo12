@@ -1,4 +1,4 @@
-<hibernate-mapping package="java">
+<hibernate-mapping package="clases.paquete">
 	<class name="Viaje" table="VIAJE">
 		<id name="IdViaje" column="ID_VIAJE">
 			  <generator class="native"/>
@@ -9,17 +9,21 @@
 		<property name="costo" not-null="true"/>
 		<property name="fecha" not-null="true"/>
 		
+        <many-to-one name="conductor"
+		 	column="ID_USUARIO"
+			unique="true"
+			not-null="true"
+			cascade="all" />
 
 		<set name="calificaciones" cascade="all">
-		<key column="ID_VIAJE"
-		not-null="true"/>
-		<one-to-many class="Calificacion"/>
+			<key column="ID_VIAJE"
+			   not-null="true"/>
+			<one-to-many class="Calificacion"/>
 		</set>
 
-		<set name="pasajeros" cascade="all">
-		<key column="ID_VIAJE"
-		not-null="true"/>
-		<one-to-many class="Pasajero"/>
+		<set name="pasajeros" table="VIAJE_PASAJERO" cascade="all">
+			<key column="ID_VIAJE"/>
+			<many-to-many column="ID_USAURIO" class="Pasajero"/>
 		</set>
 
 	</class>
