@@ -3,6 +3,9 @@ package clases.paquete;
 public class Conductor extends Usuario {
 	private Viaje viajes[];
 
+    public Conductor(){
+    	
+    }
 	public Viaje[] getViajes() {
 		return viajes;
 	}

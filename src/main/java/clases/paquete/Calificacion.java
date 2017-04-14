@@ -1,10 +1,17 @@
 package clases.paquete;
 
 public class Calificacion {
-	
+//nose si necesita id por la persistencia	
 private int id_calificacion;
 private int puntaje;
 private Pasajero hecha_por;
+public Calificacion(){
+
+}
+public crearCalificacion(int puntaje, Pasajero pas){
+    this.puntaje = puntaje;
+    this.hecha_por=pas;
+}
 
 public int getId_Calificacion() {
 	return id_calificacion;

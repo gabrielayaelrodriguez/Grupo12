@@ -5,6 +5,11 @@ public class Muber {
 	private Conductor conductores[];
 	private Pasajero pasajeros[];
 	private Viaje viajes[];
+
+	public Muber(){
+
+
+	}
 	
 	public Conductor[] getConductores() {
 		return conductores;

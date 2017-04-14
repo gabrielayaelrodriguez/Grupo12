@@ -8,6 +8,10 @@ private String nombre;
 private String contrasenia;
 private Date f_ingreso;
 
+public Usuario(){
+	
+}
+
 public int getId_usuario() {
 	return id_usuario;
 }

@@ -4,6 +4,11 @@ public class Pasajero extends Usuario {
 	private int credito;
 	private Viaje viajes[];
 
+	public Pasajero(){
+
+		
+	}
+
 	public int getCredito() {
 		return credito;
 	}
