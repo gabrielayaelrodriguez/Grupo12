@@ -5,6 +5,8 @@ public class Calificacion {
 private int id_calificacion;
 private int puntaje;
 private Pasajero hecha_por;
+private String comentario;
+
 public Calificacion(){
 
 }
@@ -38,5 +40,5 @@ public Pasajero getHecha_por() {
 public void setHecha_por(Pasajero hecha_por) {
 	this.hecha_por = hecha_por;
 }
-String comentario;
+
 }
