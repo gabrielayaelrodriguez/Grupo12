@@ -18,7 +18,6 @@ public class Main {
 		//Generating schema
 		new SchemaExport(cfg).create(true, true);
 		
-		
 		//Building sessions
 		SessionFactory sf = cfg.buildSessionFactory();
 		
