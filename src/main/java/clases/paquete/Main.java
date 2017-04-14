@@ -2,6 +2,8 @@ package clases.paquete;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
 
@@ -9,21 +11,32 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		// Setting up Hibernate
-		Configuration cfg = new Configuration();
-		cfg.configure();
+		SessionFactory sessionFactory;
 		
+		// Setting up Hibernate
+		Configuration configuration = new Configuration();
+		configuration.configure();
+		
+		ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+		sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 		//Droping schema
-		new SchemaExport(cfg).drop(true, true);
+		new SchemaExport(configuration).drop(true, true);
 		
 		//Generating schema
-		new SchemaExport(cfg).create(true, true);
+		new SchemaExport(configuration).create(true, true);
 		
 		//Building sessions
-		SessionFactory sessions = cfg.buildSessionFactory();
-		Session session = sessions.openSession();
+		//SessionFactory sessions = configuration.buildSessionFactory();
 		
-		Calificacion calif= new Calificacion();
+		Usuario user=new Usuario();  //Creamos el objeto
+		 
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		 
+		session.save(user); //<|--- Aqui guardamos el objeto en la base de datos.
+		 
+		session.getTransaction().commit();
+		session.close();
 		
 	}
 
