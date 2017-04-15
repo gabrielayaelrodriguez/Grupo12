@@ -1,15 +1,15 @@
 package clases;
 import java.sql.Date;
+import java.time.LocalDateTime;
 
 public class Usuario {
 	
 private int id_usuario;
-private String nombre;
-private String contrasenia;
-private Date f_ingreso;
+protected String nombre;
+protected String contrasenia;
+protected LocalDateTime f_ingreso;
 
 public Usuario(){
-	
 }
 
 public int getId_usuario() {
@@ -30,10 +30,10 @@ public String getContrasenia() {
 public void setContrasenia(String contrasenia) {
 	this.contrasenia = contrasenia;
 }
-public Date getF_ingreso() {
+public LocalDateTime getF_ingreso() {
 	return f_ingreso;
 }
-public void setF_ingreso(Date f_ingreso) {
+public void setF_ingreso(LocalDateTime f_ingreso) {
 	this.f_ingreso = f_ingreso;
 }
 }

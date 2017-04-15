@@ -3,7 +3,7 @@
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="clases">
 	<class name="Viaje" table="VIAJE">
-		<id name="IdViaje" column="ID_VIAJE">
+		<id name="id_viaje" column="ID_VIAJE">
 			  <generator class="native"/>
 		</id>
 		<property name="finalizado" not-null="true"/>

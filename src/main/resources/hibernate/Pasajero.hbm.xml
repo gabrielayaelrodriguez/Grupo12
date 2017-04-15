@@ -17,7 +17,7 @@
 
 		<set name="calificaciones" cascade="all">
 			<key column="ID_CALIFICACION"
-			not-null="true"/>
+			not-null="false"/>
 			<one-to-many class="Calificacion"/>
 		</set>
 		

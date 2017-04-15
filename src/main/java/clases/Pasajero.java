@@ -1,15 +1,22 @@
 package clases;
 
+import java.time.LocalDateTime;
+
 public class Pasajero extends Usuario {
-	private int credito;
+	private float credito;
 	private Viaje viajes[];
 
-	public Pasajero(){
+	public Pasajero(String nombre, String contrasenia, float credito){
+		
+		this.nombre=nombre;
+		this.contrasenia=contrasenia;
+		this.credito=credito;
+		this.f_ingreso=LocalDateTime.now();
 
 		
 	}
 
-	public int getCredito() {
+	public float getCredito() {
 		return credito;
 	}
 
