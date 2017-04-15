@@ -1,4 +1,4 @@
-package clases.paquete;
+package clases;
 
 public class Pasajero extends Usuario {
 	private int credito;

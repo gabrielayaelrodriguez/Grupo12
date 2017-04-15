@@ -30,7 +30,7 @@
 
 	<dependency>
 		<groupId>mysql</groupId>
-		<artifactId>mysql-co12ector-java</artifactId>
+		<artifactId>mysql-connector-java</artifactId>
 		<version>5.1.6</version>
 	</dependency>
   

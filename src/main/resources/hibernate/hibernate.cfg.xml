@@ -7,23 +7,22 @@
 		<property name="hibernate.dialect">
 			org.hibernate.dialect.MySQLDialect
 		</property>
-		<property name="hibernate.co12ection.driver_class">
+		<property name="hibernate.connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
 
-		<property name="hibernate.co12ection.url">jdbc:mysql://localhost:3306/grupo12</property>
-		<property name="hibernate.co12ection.username">grupo12</property>
-		<property name="hibernate.co12ection.password">grupo12</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/grupo12</property>
+		<property name="hibernate.connection.username">grupo12</property>
+		<property name="hibernate.connection.password">grupo12</property>
 		<property name="hibernate.current_session_context_class">thread</property>
 
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 
 		<!-- Incluir mappings aquí -->
-	    <mapping resource="Muber.hbm.xml" />
-	    <mapping resource="Usuario.hbm.xml" />
-	    <mapping resource="Viaje.hbm.xml" />
-	    <mapping resource="Calificacion.hbm.xml" />
+	    <mapping resource="hibernate/Usuario.hbm.xml" />
+	    <mapping resource="hibernate/Viaje.hbm.xml" />
+	    <mapping resource="hibernate/Calificacion.hbm.xml" />
 
 	</session-factory>
 </hibernate-configuration>

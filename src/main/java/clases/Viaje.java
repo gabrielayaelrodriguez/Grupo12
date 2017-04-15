@@ -1,4 +1,4 @@
-package clases.paquete;
+package clases;
 import java.sql.Date;
 
 public class Viaje {
