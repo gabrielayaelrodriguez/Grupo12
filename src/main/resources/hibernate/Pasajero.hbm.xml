@@ -2,24 +2,5 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="clases">
-	<class name="Pasajero" table="PASAJERO">
-
-		<id name="IdUsuario" column="ID_USUARIO">
-			  <generator class="native"/>
-		</id>
-
-		<property name="credito" not-null="true" />
-
-		<set name="viajes" table="VIAJE_PASAJERO" inverse="true">
-			<key column="ID_USUARIO"/>
-			<many-to-many column="ID_VIAJE" class="Viaje"/>
-		</set>
-
-		<set name="calificaciones" cascade="all">
-			<key column="ID_CALIFICACION"
-			not-null="false"/>
-			<one-to-many class="Calificacion"/>
-		</set>
-		
-	</class>
+	
 </hibernate-mapping>

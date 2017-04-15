@@ -4,7 +4,7 @@
 <hibernate-mapping package="clases">
 	<class name="Viaje" table="VIAJE">
 		<id name="id_viaje" column="ID_VIAJE">
-			  <generator class="native"/>
+			  <generator class="identity"/>
 		</id>
 		<property name="finalizado" not-null="true"/>
 		<property name="origen" not-null="true"/>
@@ -12,11 +12,11 @@
 		<property name="costo" not-null="true"/>
 		<property name="fecha" not-null="true"/>
 		
-        <many-to-one name="conductor"
+<!--         <many-to-one name="conductor"
 		 	column="ID_USUARIO"
 			unique="true"
 			not-null="true"
-			cascade="all" />
+			cascade="all" /> 
 
 		<set name="calificaciones" cascade="all">
 			<key column="ID_VIAJE"
@@ -24,10 +24,20 @@
 			<one-to-many class="Calificacion"/>
 		</set>
 
-		<set name="pasajeros" table="VIAJE_PASAJERO" cascade="all">
-			<key column="ID_VIAJE"/>
-			<many-to-many column="ID_USAURIO" class="Pasajero"/>
-		</set>
+		-->
+
+		<list name="calificaciones" cascade="all-delete-orphan"> 
+            <key column="ID_USUARIO" /> 
+            <index column="ORDEN" /> 
+            <one-to-many class="Calificacion" /> 
+        </list> 
+
+		<list name="pasajeros" cascade="all-delete-orphan"> 
+            <key column="ID_VIAJE" /> 
+            <index column="ORDEN" /> 
+            <one-to-many class="Pasajero" /> 
+        </list> 
+
 
 	</class>
 </hibernate-mapping>

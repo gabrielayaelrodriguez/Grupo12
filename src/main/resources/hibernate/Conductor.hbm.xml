@@ -2,14 +2,5 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="clases">
-	<class name="Conductor" table="CONDUCTOR">
-		<id name="IdUsuario" column="ID_USUARIO">
-			  <generator class="native"/>
-		</id>
-		
-		<set name="viajes" inverse="true" cascade="all">
-				<key column="ID_USUARIO"/>
-				<one-to-many class="Viaje"/>
-        </set>
-	</class>
+	
 </hibernate-mapping>

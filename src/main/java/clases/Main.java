@@ -51,7 +51,7 @@ public class Main {
 				UsuariosDAO usuariosDAO = new UsuariosDAO();
 				Pasajero user1=new Pasajero("pepe", "123", 700);  //Creamos el objeto
 				System.out.println(user1.getNombre());
-				usuariosDAO.guardaUsuario(user1);
+				usuariosDAO.guardarUsuario(user1);
 				
 				
 	}

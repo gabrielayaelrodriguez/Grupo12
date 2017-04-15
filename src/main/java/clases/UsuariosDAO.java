@@ -11,7 +11,7 @@ public class UsuariosDAO
     private Session sesion; 
     private Transaction tx;  
 
-    public long guardaUsuario(Usuario user) throws HibernateException 
+    public long guardarUsuario(Usuario user) throws HibernateException 
     { 
         long id = 0;  
 

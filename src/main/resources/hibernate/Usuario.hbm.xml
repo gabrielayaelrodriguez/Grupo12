@@ -2,17 +2,50 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="clases">
-	<class name="Usuario" table="USUARIO">
+	<class name="Usuario" table="USUARIOS">
 
 		<id name="id_usuario" column="ID_USUARIO">
-			  <generator class="native"/>
-		</id>
+			<generator class="identity" />
+        </id>
+        
+        <discriminator column="DISC" type="string" />
 
 		<property name="nombre" not-null="true"/>
 		<property name="contrasenia" not-null="true"/>
 		<property name="f_ingreso" not-null="true"/>
 
-		<union-subclass name="Pasajero" table="USUARIO_PASAJERO">
+
+		<subclass name="Conductor" discriminator-value="cond">
+		
+	        <list name="viajes" cascade="all-delete-orphan"> 
+	            <key column="ID_USUARIO" /> 
+	            <index column="ORDEN" /> 
+	            <one-to-many class="Viaje" /> 
+	        </list> 
+
+
+		</subclass>
+
+		<subclass name="Pasajero" discriminator-value="psj">
+
+			<property name="credito" not-null="true" />
+
+			<list name="viajes" cascade="all-delete-orphan"> 
+	            <key column="ID_USUARIO" /> 
+	            <index column="ORDEN" /> 
+	            <one-to-many class="Viaje" /> 
+	        </list> 
+
+			<list name="calificaciones" cascade="all-delete-orphan"> 
+	            <key column="ID_USUARIO" /> 
+	            <index column="ORDEN" /> 
+	            <one-to-many class="Calificacion" /> 
+	        </list> 
+
+		
+		</subclass>
+
+<!-- 		<union-subclass name="Pasajero" table="USUARIO_PASAJERO">
 			<property name="credito" not-null="true" />
 
 		<set name="viajes" table="VIAJE_PASAJERO" inverse="true">
@@ -33,7 +66,7 @@
 				<one-to-many class="Viaje"/>
             </set>
 
-		</union-subclass>
+		</union-subclass> -->
 		
 	</class>
 </hibernate-mapping>

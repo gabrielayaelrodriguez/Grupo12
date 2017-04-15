@@ -19,7 +19,7 @@ public int getId_Calificacion() {
 	return id_calificacion;
 }
 public void setId_Calificacion(int id) {
-	this.id_calificacion = id;
+	this.id_calificacion = id_calificacion;
 }
 
 public int getPuntaje() {
