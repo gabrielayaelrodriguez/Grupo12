@@ -28,6 +28,7 @@ public class Viaje {
 		this.origen=origen;
 		this.costo=costo;
 		this.fecha=LocalDateTime.now();
+		this.max_pasajeros=maxpasajeros;
 		this.pasajeros = new ArrayList<Pasajero>();
 	}
 
