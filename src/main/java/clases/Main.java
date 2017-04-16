@@ -1,5 +1,15 @@
 package clases;
 
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
+//import org.hibernate.service.ServiceRegistry;
+//import org.hibernate.service.ServiceRegistryBuilder;
+//import org.hibernate.cfg.Configuration;
+import org.hibernate.tool.hbm2ddl.SchemaExport;
+
+
+//estos son los "nuevos"
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -12,7 +22,9 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		Configuration conf = new Configuration().configure();
+		//kosas "nuevas"
+		
+		Configuration conf = new Configuration().configure("/hibernate/hibernate.cfg.xml");
 		ServiceRegistry sr = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
 		SessionFactory sf = conf.buildSessionFactory(sr);
 		Session session = sf.openSession();
@@ -25,13 +37,13 @@ public class Main {
 				//Configuration configuration = new Configuration();
 				//configuration.configure("/hibernate/hibernate.cfg.xml");
 				//borra si existe el esquema en la base de datos asi no hay conflictos y asi deja libre para cargar la nueva version de las tablas
-				//System.out.println("Droping schema.........");
-				//new SchemaExport(configuration).drop(true, true);
-				//System.out.println("DONE.");
+				System.out.println("Droping schema.........");
+				new SchemaExport(conf).drop(true, true);
+				System.out.println("DONE.");
 				//genera las tablas
-				//System.out.println("Generating schema.........");
-				//new SchemaExport(configuration).create(true, true);
-				//System.out.println("DONE.");
+				System.out.println("Generating schema.........");
+				new SchemaExport(conf).create(true, true);
+				System.out.println("DONE.");
 				/*ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 				//Droping schema
