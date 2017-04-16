@@ -6,13 +6,17 @@ private int id_calificacion;
 private int puntaje;
 private Pasajero hecha_por;
 private String comentario;
+private Viaje para_viaje;
 
 public Calificacion(){
 
 }
-public void crearCalificacion(int puntaje, Pasajero pas){
+public Calificacion(int puntaje, String comentario, Pasajero pas, Viaje viaje){
     this.puntaje = puntaje;
+    this.comentario=comentario;
     this.hecha_por=pas;
+    this.para_viaje=viaje;
+    
 }
 
 public int getId_calificacion() {
@@ -39,6 +43,12 @@ public Pasajero getHecha_por() {
 }
 public void setHecha_por(Pasajero hecha_por) {
 	this.hecha_por = hecha_por;
+}
+public Viaje getPara_viaje() {
+	return para_viaje;
+}
+public void setPara_viaje(Viaje para_viaje) {
+	this.para_viaje = para_viaje;
 }
 
 }
