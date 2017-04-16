@@ -1,5 +1,6 @@
 package clases;
 import java.sql.Date;
+import java.util.List;
 
 public class Viaje {
 	private int id_viaje;
@@ -8,8 +9,22 @@ public class Viaje {
 	private String origen;
 	private float costo;
 	private Date fecha;
-	private Calificacion calificaciones[];
-	private Pasajero pasajeros[];
+	private List<Calificacion> calificaciones;
+	private List<Pasajero> pasajeros;
+	
+	
+	
+	public void agregarPasajero(Pasajero pasajero) {
+		this.pasajeros.add(pasajero);
+	}
+	//setters y getters
+	
+	public List<Pasajero> getPasajeros() {
+		return pasajeros;
+	}
+	public void setPasajeros(List<Pasajero> pasajeros) {
+		this.pasajeros = pasajeros;
+	}
 	private Conductor conductor;
 	
 	public int getId_viaje() {
@@ -54,18 +69,14 @@ public class Viaje {
 	public void setMax_pasajeros(int max_pasajeros) {
 		this.max_pasajeros = max_pasajeros;
 	}
-	public Calificacion[] getCalificaciones() {
+	public List<Calificacion> getCalificaciones() {
 		return calificaciones;
 	}
-	public void setCalificaciones(Calificacion calificaciones[]) {
+
+	public void setCalificaciones(List<Calificacion> calificaciones) {
 		this.calificaciones = calificaciones;
 	}
-	public Pasajero[] getPasajeros() {
-		return pasajeros;
-	}
-	public void setPasajeros(Pasajero pasajeros[]) {
-		this.pasajeros = pasajeros;
-	}
+	
 	public Conductor getConductor() {
 		return conductor;
 	}

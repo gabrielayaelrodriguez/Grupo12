@@ -1,6 +1,7 @@
 package clases;
 import java.sql.Date;
 import java.time.LocalDateTime;
+//import java.util.Date; 
 
 public class Usuario {
 	
@@ -8,6 +9,13 @@ private int id_usuario;
 protected String nombre;
 protected String contrasenia;
 protected LocalDateTime f_ingreso;
+
+public Usuario(String nombre, String contrasenia) {
+	super();
+	this.nombre = nombre;
+	this.contrasenia = contrasenia;
+	this.f_ingreso=LocalDateTime.now();
+}
 
 public Usuario(){
 }
