@@ -11,6 +11,17 @@
 		<property name="puntaje" not-null="true" />
 		<property name="comentario" not-null="true" />
 
+
+        
+
+        <many-to-one name="hecha_por" unique="true" fetch="join">
+			<column name="ID_USUARIO"/>
+		</many-to-one>
+
+		<many-to-one name="para_viaje" unique="true" fetch="join">
+            <column name="ID_VIAJE" />
+        </many-to-one>
+        
 		<!-- 
 
 		para mi esto esta de mas porke ya lo tiene usuario

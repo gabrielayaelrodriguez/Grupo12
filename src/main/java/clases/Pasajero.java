@@ -28,6 +28,11 @@ public class Pasajero extends Usuario {
 			this.viajes.add(viaje);
 	}
 	
+	public void calificar(int puntaje, String comentario, Viaje viaje) {
+		Calificacion calif= new Calificacion(puntaje, comentario, this, viaje);
+		viaje.agregarCalificacion(calif);
+	}
+	
 	
 	//geters y setters
 	

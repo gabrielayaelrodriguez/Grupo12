@@ -112,4 +112,10 @@ public class Viaje {
 		this.conductor = conductor;
 	}
 
+
+	public void agregarCalificacion(Calificacion calif) {
+		this.calificaciones.add(calif);
+		
+	}
+
 }
