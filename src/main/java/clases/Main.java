@@ -36,7 +36,7 @@ public class Main {
 				//configuration.configure("/hibernate/hibernate.cfg.xml");
 				Pasajero user1=new Pasajero("pepe", "123", 700);  //Creamos el objeto
 				System.out.println(user1.getNombre());
-				session.save(user1);
+				//session.save(user1);
 				//usuariosDAO.guardarUsuario(user1);
 				//System.out.println("hola");
 				

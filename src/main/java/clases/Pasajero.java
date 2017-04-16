@@ -9,7 +9,9 @@ public class Pasajero extends Usuario {
 	private List<Viaje> viajes;
 	private List<Calificacion> calificaciones;
 
+	public Pasajero(){
 	
+	}
 
 	public Pasajero(String nombre, String contrasenia, float credito){
 		
@@ -21,7 +23,7 @@ public class Pasajero extends Usuario {
 		
 	}
 	
-	public void addTravel(Viaje viaje) {
+	public void agregarViaje(Viaje viaje) {
 		    viaje.agregarPasajero(this);
 			this.viajes.add(viaje);
 	}

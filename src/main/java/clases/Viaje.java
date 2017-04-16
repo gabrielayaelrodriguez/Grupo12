@@ -1,19 +1,36 @@
 package clases;
 import java.sql.Date;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Viaje {
 	private int id_viaje;
+	private int max_pasajeros;
 	private boolean finalizado;
 	private String destino;
 	private String origen;
 	private float costo;
-	private Date fecha;
+	private LocalDateTime fecha;
 	private List<Calificacion> calificaciones;
 	private List<Pasajero> pasajeros;
 	
 	
+	public Viaje(){
+		
+	}
 	
+	
+	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conductor) {
+		// TODO Auto-generated constructor stub
+		this.finalizado=true;
+		this.destino=destino;
+		this.origen=origen;
+		this.costo=costo;
+		this.fecha=LocalDateTime.now();
+		this.pasajeros = new ArrayList<Pasajero>();
+	}
+
 	public void agregarPasajero(Pasajero pasajero) {
 		this.pasajeros.add(pasajero);
 	}
@@ -57,10 +74,10 @@ public class Viaje {
 	public void setCosto(float costo) {
 		this.costo = costo;
 	}
-	public Date getFecha() {
+	public LocalDateTime getFecha() {
 		return fecha;
 	}
-	public void setFecha(Date fecha) {
+	public void setFecha(LocalDateTime fecha) {
 		this.fecha = fecha;
 	}
 	public int getMax_pasajeros() {
@@ -83,6 +100,5 @@ public class Viaje {
 	public void setConductor(Conductor conductor) {
 		this.conductor = conductor;
 	}
-	int max_pasajeros;
 
 }
