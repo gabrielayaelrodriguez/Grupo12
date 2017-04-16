@@ -57,4 +57,9 @@ public class Pasajero extends Usuario {
 		this.viajes = viajes;
 	}
 
+	public void cobrar(float acobrar) {
+		this.credito=this.credito - acobrar;
+		
+	}
+
 }

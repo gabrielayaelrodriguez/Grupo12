@@ -33,10 +33,17 @@ public class Viaje {
 	}
 
 	public void agregarPasajero(Pasajero pasajero) {
-		if (!this.finalizado && pasajeros.size()<max_pasajeros){
+		if (!this.finalizado && this.pasajeros.size()< this.max_pasajeros){
 			this.pasajeros.add(pasajero);
 		}
 		
+	}
+	
+	public void finalizar() {
+		float acobrar = this.costo / this.pasajeros.size();
+		for(Pasajero p : this.pasajeros) {
+            p.cobrar(acobrar);
+        }
 	}
 	//setters y getters
 	
