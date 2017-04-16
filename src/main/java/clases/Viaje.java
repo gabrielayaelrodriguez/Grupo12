@@ -23,7 +23,7 @@ public class Viaje {
 	
 	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conductor) {
 		// TODO Auto-generated constructor stub
-		this.finalizado=true;
+		this.finalizado=false;
 		this.destino=destino;
 		this.origen=origen;
 		this.costo=costo;
@@ -33,7 +33,10 @@ public class Viaje {
 	}
 
 	public void agregarPasajero(Pasajero pasajero) {
-		this.pasajeros.add(pasajero);
+		if (!this.finalizado && pasajeros.size()<max_pasajeros){
+			this.pasajeros.add(pasajero);
+		}
+		
 	}
 	//setters y getters
 	
