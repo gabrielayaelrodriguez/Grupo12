@@ -1,7 +1,7 @@
 package clases;
 
 import java.util.List;
-
+import org.hibernate.SessionFactory;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -16,10 +16,12 @@ public class UsuariosDAO
         long id = 0;  
 
         try 
-        { 
+        {   System.out.println("la execepcion salta por error en hibernateUntil");
             iniciaOperacion(); 
             id = (Long) sesion.save(user); 
             tx.commit(); 
+            //aca salta la exepcion
+            
         } catch (HibernateException he) 
         { 
             manejaExcepcion(he); 
@@ -99,7 +101,10 @@ public class UsuariosDAO
 
     private void iniciaOperacion() throws HibernateException 
     { 
-        sesion = HibernateUtil.getSessionFactory().openSession(); 
+    	SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        
+       // sesion = HibernateUtil.getSessionFactory().openSession(); 
+        sesion = sessionFactory.openSession();
         tx = sesion.beginTransaction(); 
     }  
 

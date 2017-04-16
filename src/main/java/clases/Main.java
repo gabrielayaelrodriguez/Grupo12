@@ -19,13 +19,17 @@ public class Main {
 				Configuration configuration = new Configuration();
 				configuration.configure("/hibernate/hibernate.cfg.xml");
 				//borra si existe el esquema en la base de datos asi no hay conflictos y asi deja libre para cargar la nueva version de las tablas
-				System.out.println("Droping schema.........");
+				System.out.println("drop");
 				new SchemaExport(configuration).drop(true, true);
-				System.out.println("DONE.");
+				System.out.println("funca drop.");
 				//genera las tablas
-				System.out.println("Generating schema.........");
+				System.out.println("create");
 				new SchemaExport(configuration).create(true, true);
-				System.out.println("DONE.");
+				System.out.println("funca create.");
+				
+				
+				
+				
 				/*ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
 				sessionFactory = configuration.buildSessionFactory(serviceRegistry);
 				//Droping schema
@@ -47,11 +51,13 @@ public class Main {
 				session.getTransaction().commit();
 				session.close();
 				*/
-				
+				System.out.println(org.hibernate.Version.getVersionString());
+				System.out.println("llegamos a la carg.");
 				UsuariosDAO usuariosDAO = new UsuariosDAO();
 				Pasajero user1=new Pasajero("pepe", "123", 700);  //Creamos el objeto
 				System.out.println(user1.getNombre());
 				usuariosDAO.guardarUsuario(user1);
+				System.out.println("cargo.");
 				
 				
 	}

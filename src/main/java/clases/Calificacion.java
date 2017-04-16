@@ -15,10 +15,10 @@ public void crearCalificacion(int puntaje, Pasajero pas){
     this.hecha_por=pas;
 }
 
-public int getId_Calificacion() {
+public int getId_calificacion() {
 	return id_calificacion;
 }
-public void setId_Calificacion(int id) {
+public void setId_calificacion(int id_calificacion) {
 	this.id_calificacion = id_calificacion;
 }
 
