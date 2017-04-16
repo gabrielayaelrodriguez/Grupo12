@@ -5,7 +5,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
-
+import org.hibernate.Session;
 public class HibernateUtil
 {  
 	private static SessionFactory sessionFactory;
@@ -38,4 +38,14 @@ public class HibernateUtil
 	   
 	   
 	 } 
+   public static void cerrar(Session session ){
+	   System.out.println("enpesando a cerrar...");
+	    session.getTransaction().commit();
+		session.flush();
+		session.close();
+		sessionFactory.close(); 
+		System.out.println("Cerro!!!!!!");
+	   
+	   
+   }
 }
