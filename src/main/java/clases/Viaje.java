@@ -31,18 +31,10 @@ public class Viaje {
 		this.max_pasajeros=maxpasajeros;
 		this.pasajeros = new ArrayList<Pasajero>();
 		this.conductor = conductor;
+		this.calificaciones = new ArrayList<Calificacion>();
 	}
 	
-	public Viaje(String origen, String destino, int maxpasajeros, float costo) {
-		// TODO Auto-generated constructor stub
-		this.finalizado=false;
-		this.destino=destino;
-		this.origen=origen;
-		this.costo=costo;
-		this.fecha=LocalDateTime.now();
-		this.max_pasajeros=maxpasajeros;
-		this.pasajeros = new ArrayList<Pasajero>();
-	}
+	
 
 	public void agregarPasajero(Pasajero pasajero) {
 		if (!this.finalizado && this.pasajeros.size()< this.max_pasajeros){
