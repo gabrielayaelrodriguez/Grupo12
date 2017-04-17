@@ -6,8 +6,7 @@ package clases;
 //import org.hibernate.service.ServiceRegistryBuilder;
 //import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
-
-
+import java.time.LocalDateTime;
 //estos son los "nuevos"
 
 import org.hibernate.Session;
@@ -26,22 +25,40 @@ public class Main {
 	   // Configuration conf = new Configuration().configure("/hibernate/hibernate.cfg.xml");
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
-		HibernateUtil.crearSchema();
+		System.out.println("punto 4.a");
 		
-		//SessionFactory sessionFactory;
+		Conductor roberto = new Conductor("roberto","1234",LocalDateTime.now());
+		Viaje viaje = roberto.crearViaje("la plata","tres arroyos",4,900);
+		System.out.println("-------------------");
 		
-				// Setting up Hibernate
-		        //System.out.println("aca arranca");
-				//Configuration configuration = new Configuration();
-				//configuration.configure("/hibernate/hibernate.cfg.xml");
-				//Pasajero user1=new Pasajero("pepe", "123", 700);  //Creamos el objeto
-				//System.out.println(user1.getNombre());
-				//session.save(user1);
-				//usuariosDAO.guardarUsuario(user1);
-				//System.out.println("hola");
-				//HibernateUtil.cerrar(session);
+		System.out.println("punto 4.b");
 		
-				Viaje viaje=new Viaje("ola", "hasta", 2, 10);
+		Pasajero german = new Pasajero("german","g",1500);
+		Pasajero alicia = new Pasajero("alicia","a",1500);
+		Pasajero margarita = new Pasajero("margarita","m",1500);
+		german.agregarViaje(viaje);
+		alicia.agregarViaje(viaje);
+		margarita.agregarViaje(viaje);
+		
+		System.out.println("-------------------");
+		System.out.println("punto 4.c");
+		
+		Calificacion c1= german.calificar(5, "muy buenas anecdotas", viaje);
+		Calificacion c2= alicia.calificar(4, "buen viaje", viaje);
+		Calificacion c3= margarita.calificar(4, "bien", viaje);
+		
+		
+		System.out.println("-------------------");
+		
+		session.save(roberto);
+		session.save(german);
+		session.save(alicia);
+		session.save(margarita);
+		session.save(viaje);
+		session.save(c1);
+		session.save(c2);
+		session.save(c3);
+		HibernateUtil.cerrar(session);
 				
 	}
 }

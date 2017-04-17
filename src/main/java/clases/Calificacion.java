@@ -12,12 +12,13 @@ public Calificacion(){
 
 }
 public Calificacion(int puntaje, String comentario, Pasajero pas, Viaje viaje){
+	super();
     this.puntaje = puntaje;
     this.comentario=comentario;
     this.hecha_por=pas;
     this.para_viaje=viaje;
-    //aca agrega la calificacion a la coleccion del conductor
     this.para_viaje.getConductor().agregarCalificacion(this);
+   
     
 }
 

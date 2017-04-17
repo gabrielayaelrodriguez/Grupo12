@@ -57,6 +57,11 @@ public class Viaje {
             p.cobrar(acobrar);
         }
 	}
+	
+	public void agregarCalificacion(Calificacion calif) {
+		this.calificaciones.add(calif);
+		
+	}
 	//setters y getters
 	
 	public List<Pasajero> getPasajeros() {
@@ -125,9 +130,6 @@ public class Viaje {
 	}
 
 
-	public void agregarCalificacion(Calificacion calif) {
-		this.calificaciones.add(calif);
-		
-	}
+	
 
 }

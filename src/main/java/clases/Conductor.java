@@ -19,15 +19,19 @@ public class Conductor extends Usuario {
 		super(nombre, contrasenia);
 		this.viajes = new ArrayList<Viaje>();
 		this.f_licencia=f_licencia;
+		this.calificaciones = new ArrayList<Calificacion>();
+		
 			
 	}
     
-    public void crearViaje(String origen, String destino, int maxpasajeros, float costo) {
+    public Viaje crearViaje(String origen, String destino, int maxpasajeros, float costo) {
     	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this);
 		this.viajes.add(viaje);
+		return viaje;
     }
 
     public void agregarCalificacion(Calificacion c){
+    	//System.out.println(c.getComentario());
     	this.calificaciones.add(c);
     	
     	
