@@ -14,7 +14,7 @@ public class Viaje {
 	private LocalDateTime fecha;
 	private List<Calificacion> calificaciones;
 	private List<Pasajero> pasajeros;
-	
+	private Conductor conductor;
 	
 	public Viaje(){
 		
@@ -53,7 +53,7 @@ public class Viaje {
 	public void setPasajeros(List<Pasajero> pasajeros) {
 		this.pasajeros = pasajeros;
 	}
-	private Conductor conductor;
+	
 	
 	public int getId_viaje() {
 		return id_viaje;

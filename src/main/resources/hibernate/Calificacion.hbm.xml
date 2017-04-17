@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="clases">
 	<class name="Calificacion" table="CALIFICACION">
@@ -8,17 +8,21 @@
 		<id name="id_calificacion" column="ID_CALIFICACION">
 			  <generator class="identity"/>
 		</id>
-		<property name="puntaje" not-null="true" />
-		<property name="comentario" not-null="true" />
+		<property name="puntaje" type="int">
+            <column name="PUNTAJE" />
+        </property>
+		<property name="comentario" type="java.lang.String">
+            <column name="COMENTARIO" />
+        </property>
 
 
         
 
-        <many-to-one name="hecha_por" unique="true" fetch="join">
-			<column name="ID_USUARIO"/>
+        <many-to-one name="hecha_por" unique="true" fetch="join" class="Pasajero">
+			<column name="ID_PASAJERO"/>
 		</many-to-one>
 
-		<many-to-one name="para_viaje" unique="true" fetch="join">
+		<many-to-one name="para_viaje" unique="true" fetch="join" class="Viaje">
             <column name="ID_VIAJE" />
         </many-to-one>
         

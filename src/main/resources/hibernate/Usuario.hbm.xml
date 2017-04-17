@@ -1,52 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="clases">
-	<class name="Usuario" table="USUARIO">
+	<class name="Usuario" table="USUARIO" abstract="true">
 
-		<id name="id_usuario" column="ID_USUARIO">
-			<generator class="identity" />
+		<id name="id_usuario" type="java.lang.Long">
+            <column name="ID_USUARIO" />
+            <generator class="hilo" />
         </id>
         
-        <discriminator column="DISC" type="string" />
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+        <property name="contrasenia" type="java.lang.String">
+            <column name="CONTRASENIA" />
+        </property>
+        <property name="f_ingreso" type="java.time.LocalDateTime">
+            <column name="F_INGRESO" />
+        </property>
 
-		<property name="nombre" not-null="true"/>
-		<property name="contrasenia" not-null="true"/>
-		<property name="f_ingreso" not-null="true"/>
+    <!--        CONDUCTOR                 -->
+		<union-subclass name="Conductor" table="CONDUCTOR">
+			<property name="f_licencia" type="java.util.Date">
+        	    <column name="F_LICENCIA" />
+        	</property>
+        	<list name="viajes" inverse="true" table="VIAJE_CONDUCTOR" lazy="true">
+        	    <key column="ID_CONDUCTOR" />
+        	    <list-index></list-index>
+        	    <one-to-many class="Viajes" />
+        	</list>
+        	
+		</union-subclass>
 
+		<!--        PASAJERO                      -->
+		<union-subclass name="Pasajero" table="USUARIO_PASAJERO">
+			<property name="credito" type="float">
+	            <column name="CREDITO" />
+	        </property>
+	        <list name="viajes" inverse="true" table="VIAJE_PASAJERO" lazy="true">
+        	    <key column="ID_PASAJERO" />
+	            <list-index></list-index>
+	            <many-to-many column="ID_VIAJE"  class="Viaje" />
+	        </list>
+	        <list name="calificaciones" inverse="true" table="CALIFICACION_PASAJERO" lazy="true">
+        	    <key column="ID_PASAJERO" />
+	            <list-index></list-index>
+	            <one-to-many column="ID_CALIFICACION"  class="Calificacion" />
+	        </list>
+	        
+	 </union-subclass>
 
-		<subclass name="Conductor" discriminator-value="cond">
-		
-	        <list name="viajes" cascade="all-delete-orphan"> 
-	            <key column="ID_USUARIO" /> 
-	            <index column="ORDEN" /> 
-	            <one-to-many class="Viaje" /> 
-	        </list> 
-
-
-		</subclass>
-
-		<subclass name="Pasajero" discriminator-value="psj">
-
-			<property name="credito" not-null="true" />
-
-			<list name="viajes" cascade="all-delete-orphan"> 
-	            <key column="ID_USUARIO" /> 
-	            <index column="ORDEN" /> 
-	            <one-to-many class="Viaje" /> 
-	        </list> 
-
-			<list name="calificaciones" cascade="all-delete-orphan"> 
-	            <key column="ID_USUARIO" /> 
-	            <index column="ORDEN" /> 
-	            <one-to-many class="Calificacion" /> 
-	        </list> 
-
-		
-		</subclass>
-
-<!-- 		<union-subclass name="Pasajero" table="USUARIO_PASAJERO">
-			<property name="credito" not-null="true" />
+<!-- 		
 
 		<set name="viajes" table="VIAJE_PASAJERO" inverse="true">
 			<key column="ID_USUARIO"/>

@@ -39,6 +39,7 @@ public class Main {
 				//session.save(user1);
 				//usuariosDAO.guardarUsuario(user1);
 				//System.out.println("hola");
+				HibernateUtil.cerrar(session);
 				
 	}
 }
