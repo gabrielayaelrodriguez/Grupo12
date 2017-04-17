@@ -30,6 +30,7 @@ public class Viaje {
 		this.fecha=LocalDateTime.now();
 		this.max_pasajeros=maxpasajeros;
 		this.pasajeros = new ArrayList<Pasajero>();
+		this.conductor = conductor;
 	}
 	
 	public Viaje(String origen, String destino, int maxpasajeros, float costo) {

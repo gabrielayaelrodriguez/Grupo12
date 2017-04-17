@@ -14,10 +14,11 @@ public class Conductor extends Usuario {
     	
     }
     
-    public Conductor(String nombre, String contrasenia){
+    public Conductor(String nombre, String contrasenia , LocalDateTime f_licencia){
 		
 		super(nombre, contrasenia);
 		this.viajes = new ArrayList<Viaje>();
+		this.f_licencia=f_licencia;
 			
 	}
     
@@ -26,7 +27,11 @@ public class Conductor extends Usuario {
 		this.viajes.add(viaje);
     }
 
-
+    public void agregarCalificacion(Calificacion c){
+    	this.calificaciones.add(c);
+    	
+    	
+    }
     //geters y setters
     
 	public List<Viaje> getViajes() {

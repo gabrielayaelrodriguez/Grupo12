@@ -18,6 +18,7 @@ public class Pasajero extends Usuario {
 		super(nombre, contrasenia);
 		this.credito=credito;
 		this.viajes = new ArrayList<Viaje>();
+		this.calificaciones = new ArrayList<Calificacion>();
 		
 
 		
