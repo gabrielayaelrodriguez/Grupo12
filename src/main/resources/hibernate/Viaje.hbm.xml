@@ -2,29 +2,45 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="clases">
+
 	<class name="Viaje" table="VIAJE">
-		<id name="id_viaje" type="java.lang.Long">
+		<id name="id_viaje" type="int">
             <column name="ID_VIAJE" />
             <generator class="native" />
         </id>
+        <property name="max_pasajeros" type="int">
+            <column name="MAX_PASAJEROS" />
+        </property>
 		<property name="finalizado" type="boolean">
             <column name="FINALIZADO" />
-        </property>
-		 <property name="origen" type="java.lang.String">
-            <column name="ORIGEN" />
         </property>
 		<property name="destino" type="java.lang.String">
             <column name="DESTINO" />
         </property>
+        <property name="origen" type="java.lang.String">
+            <column name="ORIGEN" />
+        </property>
 		<property name="costo" type="float">
             <column name="COSTO" />
         </property>
-		<property name="fecha" type="java.util.Date">
+		<property name="fecha" type="java.time.LocalDateTime">
             <column name="FECHA" />
         </property>
-		<property name="max_pasajero" type="int">
-            <column name="MAX_PASAJERO" />
-        </property>
+
+
+        <list name="pasajeros" table="PAS_VIAJES" lazy="true">
+            <key column="ID_VIAJE" />
+            <list-index></list-index>
+            <many-to-many class="Pasajero" />
+        </list>
+
+        <many-to-one name="conductor" class="Conductor" fetch="join">
+            <column name="ID_CONDUCTOR" />
+        </many-to-one>
+
+
+
+		
 		
 <!--         <many-to-one name="conductor"
 		 	column="ID_USUARIO"
@@ -52,7 +68,10 @@
             <one-to-many class="Pasajero" /> 
         </list> 
 
--->
+
+
+
+
 
         <list name="calificaciones" cascade="all-delete-orphan"> 
             <key column="ID_VIAJE" /> 
@@ -70,7 +89,7 @@
         </many-to-one>
 
          
-
+-->
 
 	</class>
 </hibernate-mapping>

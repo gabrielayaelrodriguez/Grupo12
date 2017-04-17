@@ -15,32 +15,14 @@
             <column name="COMENTARIO" />
         </property>
 
-
-        
-
-        <many-to-one name="hecha_por" unique="true" fetch="join" class="Pasajero">
-			<column name="ID_PASAJERO"/>
-		</many-to-one>
-
-		<many-to-one name="para_viaje" unique="true" fetch="join" class="Viaje">
+        <!--un pasajero me hizo-->
+        <many-to-one name="hecha_por" class="Pasajero" unique="true" fetch="join">
+            <column name="ID_PASAJERO" />
+        </many-to-one>
+        <!--un viaje me tiene-->
+        <many-to-one name="para_viaje" class="Viaje" unique="true" fetch="join">
             <column name="ID_VIAJE" />
         </many-to-one>
-        
-		<!-- 
-
-		para mi esto esta de mas porke ya lo tiene usuario
-
-
-		muchos calificaciones para un pasajero 
-		<many-to-one name="hecha_por"
-		 	column="ID_USUARIO"
-			unique="true"
-			not-null="true"
-			cascade="all" />
-
-		<property name="puntaje" not-null="true"/>
-
-		-->
 		
 	</class>
 </hibernate-mapping>

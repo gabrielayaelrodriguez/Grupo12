@@ -19,16 +19,13 @@
 		<property name="hibernate.show_sql">true</property>
 		<property name="hibernate.format_sql">true</property>
 
-		<!-- esta linea seria para no tener que hacer -->
-		<!-- mysql> CREATE DATABASE grupo12; -->
-		<!-- pero lo tuve que hacer igual desde consola -->
-
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<!-- esta linea seria para no tener que crear la base -->
+		<property name="hibernate.hbm2ddl.auto">create</property>
 
 		<!-- Incluir mappings aquí -->
-	   <!-- <mapping resource="hibernate/Usuario.hbm.xml" />
-	    
-	    <mapping resource="hibernate/Calificacion.hbm.xml" /> -->
-         <mapping resource="hibernate/Viaje.hbm.xml" />
+		<mapping resource="hibernate/Usuario.hbm.xml" />
+	    <mapping resource="hibernate/Calificacion.hbm.xml" />
+        <mapping resource="hibernate/Viaje.hbm.xml" />
+
 	</session-factory>
 </hibernate-configuration>

@@ -34,12 +34,14 @@ public class Main {
 		        //System.out.println("aca arranca");
 				//Configuration configuration = new Configuration();
 				//configuration.configure("/hibernate/hibernate.cfg.xml");
-				Pasajero user1=new Pasajero("pepe", "123", 700);  //Creamos el objeto
-				System.out.println(user1.getNombre());
+				//Pasajero user1=new Pasajero("pepe", "123", 700);  //Creamos el objeto
+				//System.out.println(user1.getNombre());
 				//session.save(user1);
 				//usuariosDAO.guardarUsuario(user1);
 				//System.out.println("hola");
-				HibernateUtil.cerrar(session);
+				//HibernateUtil.cerrar(session);
+		
+				Viaje viaje=new Viaje("ola", "hasta", 2, 10);
 				
 	}
 }
