@@ -10,25 +10,27 @@
         </id>
 
         <property name="max_pasajeros">
-            <column name="MAX_PASAJEROS" />
+            <column name="max_pasajeros" />
         </property>
-		<property name="finalizado" type="boolean">
-            <column name="FINALIZADO" />
+		<property name="finalizado">
+            <column name="finalizado" />
         </property>
-		<property name="destino" type="java.lang.String">
-            <column name="DESTINO" />
+		<property name="destino">
+            <column name="destino" />
         </property>
-        <property name="origen" type="java.lang.String">
-            <column name="ORIGEN" />
+        <property name="origen">
+            <column name="origen" />
         </property>
-		<property name="costo" type="float">
-            <column name="COSTO" />
+		<property name="costo">
+            <column name="costo" />
         </property>
-		<property name="fecha" type="java.time.LocalDateTime">
-            <column name="FECHA" />
+		<property name="fecha">
+            <column name="fecha" />
         </property>
 
-
+        <many-to-one name="muber">
+            <column name="id_muber" />
+        </many-to-one>
 
         <list name="calificaciones" cascade="all" inverse="false" >
                 <key>
@@ -47,81 +49,10 @@
              <many-to-many column="id_usuario" class="Pasajero" />
         </set>
 
-
-
-<!--
-
-
-
-
-
-
-
-
-
-
-        <list name="pasajeros" table="PAS_VIAJES" lazy="true">
-            <key column="ID_VIAJE" />
-            <list-index></list-index>
-            <many-to-many class="Pasajero" />
-        </list>
-
-        <many-to-one name="conductor" class="Conductor" fetch="join">
-            <column name="ID_CONDUCTOR" />
+        <!--un conductor me hizo-->
+        <many-to-one name="conducido_por">
+            <column name="id_conductor" />
         </many-to-one>
-
-
-
-		
-		
-         <many-to-one name="conductor"
-		 	column="ID_USUARIO"
-			unique="true"
-			not-null="true"
-			cascade="all" /> 
-
-		<set name="calificaciones" cascade="all">
-			<key column="ID_VIAJE"
-			   not-null="true"/>
-			<one-to-many class="Calificacion"/>
-		</set>
-
-		
-
-		<list name="calificaciones" cascade="all-delete-orphan"> 
-            <key column="ID_USUARIO" /> 
-            <index column="ORDEN" /> 
-            <one-to-many class="Calificacion" /> 
-        </list> 
-
-		<list name="pasajeros" cascade="all-delete-orphan"> 
-            <key column="ID_VIAJE" /> 
-            <index column="ORDEN" /> 
-            <one-to-many class="Pasajero" /> 
-        </list> 
-
-
-
-
-
-
-        <list name="calificaciones" cascade="all-delete-orphan"> 
-            <key column="ID_VIAJE" /> 
-            <one-to-many class="Calificacion" /> 
-        </list> 
-
-		<list name="pasajeros" table="VIAJE_PASAJERO" lazy="true">
-            <key column="ID_VIAJE" />
-            <list-index></list-index>
-            <many-to-many column="ID_PASAJERO" class="Pasajero" />
-        </list>
-
-        <many-to-one name="conductor"  class="Conductor" fetch="join">
-            <column name="ID_CONDUCTOR" />
-        </many-to-one>
-
-         
--->
 
 	</class>
 </hibernate-mapping>

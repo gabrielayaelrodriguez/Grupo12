@@ -16,14 +16,14 @@ public class Viaje {
 	private LocalDateTime fecha;
 	private List<Calificacion> calificaciones;
 	private Set<Pasajero> pasajeros;
-	private Conductor conductor;
+	private Conductor conducido_por;
 	
 	public Viaje(){
 		
 	}
 	
 	
-	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conductor) {
+	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conducido_por) {
 		// TODO Auto-generated constructor stub
 		this.finalizado=false;
 		this.destino=destino;
@@ -32,7 +32,7 @@ public class Viaje {
 		this.fecha=LocalDateTime.now();
 		this.max_pasajeros=maxpasajeros;
 		this.pasajeros = new HashSet<Pasajero>();
-		this.conductor = conductor;
+		this.conducido_por = conducido_por;
 		this.calificaciones = new ArrayList<Calificacion>();
 	}
 	
@@ -116,11 +116,11 @@ public class Viaje {
 		this.calificaciones = calificaciones;
 	}
 	
-	public Conductor getConductor() {
-		return conductor;
+	public Conductor getConducido_por() {
+		return conducido_por;
 	}
-	public void setConductor(Conductor conductor) {
-		this.conductor = conductor;
+	public void setConducido_por(Conductor conducido_por) {
+		this.conducido_por = conducido_por;
 	}
 
 

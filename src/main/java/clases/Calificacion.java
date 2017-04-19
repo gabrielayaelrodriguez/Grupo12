@@ -17,7 +17,7 @@ public Calificacion(int puntaje, String comentario, Pasajero pas, Viaje viaje){
     this.comentario=comentario;
     this.hecha_por=pas;
     this.soy_de=viaje;
-    this.soy_de.getConductor().agregarCalificacion(this);
+    this.soy_de.getConducido_por().agregarCalificacion(this);
    
     
 }
@@ -47,10 +47,10 @@ public Pasajero getHecha_por() {
 public void setHecha_por(Pasajero hecha_por) {
 	this.hecha_por = hecha_por;
 }
-public Viaje getsoy_de() {
+public Viaje getSoy_de() {
 	return soy_de;
 }
-public void setsoy_de(Viaje soy_de) {
+public void setSoy_de(Viaje soy_de) {
 	this.soy_de = soy_de;
 }
 

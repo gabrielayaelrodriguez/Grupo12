@@ -7,41 +7,54 @@
 
 		<id name="id_usuario">
             <column name="id_usuario" />
-
-            <!-- hilo es por lo de la herencia -->
             <generator class="hilo" />
         </id>
         
         <property name="nombre">
             <column name="nombre" />
         </property>
-        <property name="contrasenia" type="java.lang.String">
-            <column name="CONTRASENIA" />
+        <property name="contrasenia">
+            <column name="contrasenia" />
         </property>
-        <property name="f_ingreso" type="java.time.LocalDateTime">
-            <column name="F_INGRESO" />
+        <property name="f_ingreso">
+            <column name="f_ingreso" />
         </property>
+
+        <many-to-one name="muber">
+            <column name="id_muber" />
+        </many-to-one>
 			
 
 
-        <union-subclass name="Conductor" table="CONDUCTOR">
+        <union-subclass name="Conductor">
 
 
-        	<property name="f_licencia" type="java.time.LocalDateTime">
-        	    <column name="F_LICENCIA" />
+        	<property name="f_licencia">
+        	    <column name="f_licencia" />
         	</property>
+
+            <list name="viajes" cascade="all" inverse="false" >
+                <key>
+                    <column name="id_conductor"  />
+                </key>
+                <list-index>
+                    <column name="index"  />
+                </list-index>
+                 <one-to-many class="Viaje" />
+            </list>
 
         	
 		</union-subclass>     
 
 		<union-subclass name="Pasajero">
+
 			<property name="credito">
 	            <column name="credito" />
 	        </property>
 
             <list name="calificaciones" cascade="all" inverse="false" >
                 <key>
-                    <column name="id_usuario"  />
+                    <column name="id_pasajero"  />
                 </key>
                 <list-index>
                     <column name="index"  />
