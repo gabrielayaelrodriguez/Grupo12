@@ -28,18 +28,28 @@
             <column name="FECHA" />
         </property>
 
-<!--
+
 
         <list name="calificaciones" cascade="all" inverse="false" >
                 <key>
                     <column name="id_viaje"  />
                 </key>
+                <list-index>
+                    <column name="index"  />
+                </list-index>
                  <one-to-many class="Calificacion" />
         </list>
 
+        <set name="pasajeros" table="pasajero_viaje"  cascade="all" inverse="false"  >
+             <key>
+                 <column name="id_viaje"  />
+             </key>
+             <many-to-many column="id_usuario" class="Pasajero" />
+        </set>
 
 
 
+<!--
 
 
 

@@ -47,7 +47,14 @@
                     <column name="index"  />
                 </list-index>
                  <one-to-many class="Calificacion" />
-             </list>
+            </list>
+
+            <set name="viajes" table="pasajero_viaje"  cascade="all" inverse="true"  >
+                <key>
+                    <column name="id_usuario"  />
+                </key>
+                <many-to-many column="id_viaje" class="Viaje" />
+            </set>
 
 
 	        

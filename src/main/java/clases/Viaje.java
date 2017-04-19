@@ -2,7 +2,9 @@ package clases;
 import java.sql.Date;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Viaje {
 	private int id_viaje;
@@ -13,7 +15,7 @@ public class Viaje {
 	private float costo;
 	private LocalDateTime fecha;
 	private List<Calificacion> calificaciones;
-	private List<Pasajero> pasajeros;
+	private Set<Pasajero> pasajeros;
 	private Conductor conductor;
 	
 	public Viaje(){
@@ -29,7 +31,7 @@ public class Viaje {
 		this.costo=costo;
 		this.fecha=LocalDateTime.now();
 		this.max_pasajeros=maxpasajeros;
-		this.pasajeros = new ArrayList<Pasajero>();
+		this.pasajeros = new HashSet<Pasajero>();
 		this.conductor = conductor;
 		this.calificaciones = new ArrayList<Calificacion>();
 	}
@@ -56,10 +58,10 @@ public class Viaje {
 	}
 	//setters y getters
 	
-	public List<Pasajero> getPasajeros() {
+	public Set<Pasajero> getPasajeros() {
 		return pasajeros;
 	}
-	public void setPasajeros(List<Pasajero> pasajeros) {
+	public void setPasajeros(Set<Pasajero> pasajeros) {
 		this.pasajeros = pasajeros;
 	}
 	
@@ -110,7 +112,7 @@ public class Viaje {
 		return calificaciones;
 	}
 
-	public void setCalificaciones(List<Calificacion> calificaciones) {
+	public void setCalificaciones(ArrayList<Calificacion> calificaciones) {
 		this.calificaciones = calificaciones;
 	}
 	

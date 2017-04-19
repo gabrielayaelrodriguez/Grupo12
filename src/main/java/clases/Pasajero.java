@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Pasajero extends Usuario {
 	private float credito;
-	private List<Viaje> viajes;
+	private Set<Viaje> viajes;
 	private List<Calificacion> calificaciones;
 
 	public Pasajero(){
@@ -18,7 +20,7 @@ public class Pasajero extends Usuario {
 		
 		super(nombre, contrasenia);
 		this.credito=credito;
-		this.viajes = new ArrayList<Viaje>();
+		this.viajes = new HashSet<Viaje>();
 		this.calificaciones = new ArrayList<Calificacion>();
 		
 
@@ -59,11 +61,11 @@ public class Pasajero extends Usuario {
 	public void setCredito(float credito) {
 		this.credito = credito;
 	}
-	public List<Viaje> getViajes() {
+	public Set<Viaje> getViajes() {
 		return viajes;
 	}
 
-	public void setViajes(List<Viaje> viajes) {
+	public void setViajes(Set<Viaje> viajes) {
 		this.viajes = viajes;
 	}
 
