@@ -6,7 +6,7 @@ private int id_calificacion;
 private int puntaje;
 private Pasajero hecha_por;
 private String comentario;
-private Viaje para_viaje;
+private Viaje soy_de;
 
 public Calificacion(){
 
@@ -16,8 +16,8 @@ public Calificacion(int puntaje, String comentario, Pasajero pas, Viaje viaje){
     this.puntaje = puntaje;
     this.comentario=comentario;
     this.hecha_por=pas;
-    this.para_viaje=viaje;
-    this.para_viaje.getConductor().agregarCalificacion(this);
+    this.soy_de=viaje;
+    this.soy_de.getConductor().agregarCalificacion(this);
    
     
 }
@@ -47,11 +47,11 @@ public Pasajero getHecha_por() {
 public void setHecha_por(Pasajero hecha_por) {
 	this.hecha_por = hecha_por;
 }
-public Viaje getPara_viaje() {
-	return para_viaje;
+public Viaje getsoy_de() {
+	return soy_de;
 }
-public void setPara_viaje(Viaje para_viaje) {
-	this.para_viaje = para_viaje;
+public void setsoy_de(Viaje soy_de) {
+	this.soy_de = soy_de;
 }
 
 }

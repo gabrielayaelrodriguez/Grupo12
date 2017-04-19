@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="clases">
-	<class name="Usuario" table="USUARIO" abstract="true">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-		<id name="id_usuario" type="int">
-            <column name="ID_USUARIO" />
+<hibernate-mapping package="clases">
+	<class name="Usuario" abstract="true">
+
+		<id name="id_usuario">
+            <column name="id_usuario" />
 
             <!-- hilo es por lo de la herencia -->
             <generator class="hilo" />
         </id>
         
-        <property name="nombre" type="java.lang.String">
-            <column name="NOMBRE" />
+        <property name="nombre">
+            <column name="nombre" />
         </property>
         <property name="contrasenia" type="java.lang.String">
             <column name="CONTRASENIA" />
@@ -26,25 +27,6 @@
         <union-subclass name="Conductor" table="CONDUCTOR">
 
 
-        	<!-- inverse=”true” means this is the relationship owner, and inverse=”false” (default) means it’s not. -->
-        
-        	<!-- conductor tiene muchos viajes -->
-        	<list name="viajes" inverse="true" table="COND_VIAJES" lazy="true">
-        		<!-- viaje tiene un conductor (necesitoponer conductor o pasajero porque vaije dspues tiene varios ids) -->
-        	    <key column="ID_CONDUCTOR" />
-        	    <list-index></list-index>
-        	    <one-to-many class="Viaje" />
-        	</list>
-
-
-        	<!-- conductor tiene mucchas calificaciones -->
-        	<list name="calificaciones" inverse="false" table="CALIFICACION" lazy="true">
-        		<!-- una calificacion es de un solo conductor -->
-        	    <key column="ID_CONDUCTOR" />
-        	    <list-index></list-index>
-        	    <one-to-many class="Calificacion" />
-        	</list>
-
         	<property name="f_licencia" type="java.time.LocalDateTime">
         	    <column name="F_LICENCIA" />
         	</property>
@@ -52,20 +34,24 @@
         	
 		</union-subclass>     
 
-		<union-subclass name="Pasajero" table="PASAJERO">
-			<property name="credito" type="float">
-	            <column name="CREDITO" />
+		<union-subclass name="Pasajero">
+			<property name="credito">
+	            <column name="credito" />
 	        </property>
 
-	        <!-- un pasajero tiene muchos viajes -->
-	        <list name="viajes" inverse="true" table="PAS_VIAJES" lazy="true">
-        		<!-- viaje tiene muchos pasajeros -->
-        	    <key column="ID_PASAJERO" />
-        	    <list-index></list-index>
-        	    <many-to-many class="Viaje" />
-        	</list>
+            <list name="calificaciones" cascade="all" inverse="false" >
+                <key>
+                    <column name="id_usuario"  />
+                </key>
+                <list-index>
+                    <column name="index"  />
+                </list-index>
+                 <one-to-many class="Calificacion" />
+             </list>
+
+
 	        
-	 </union-subclass>
+	   </union-subclass>
 		
 	</class>
 </hibernate-mapping>

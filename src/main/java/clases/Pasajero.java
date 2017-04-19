@@ -2,6 +2,7 @@ package clases;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.time.LocalDateTime;
 
 public class Pasajero extends Usuario {

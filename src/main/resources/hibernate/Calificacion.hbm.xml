@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="clases">
-	<class name="Calificacion" table="CALIFICACION">
+	<class name="Calificacion">
 
-		<id name="id_calificacion" column="ID_CALIFICACION">
-			  <generator class="identity"/>
+		<id name="id_calificacion">
+			  <generator class="native"/>
 		</id>
-		<property name="puntaje" type="int">
-            <column name="PUNTAJE" />
+
+		<property name="puntaje">
+            <column name="puntaje" />
         </property>
-		<property name="comentario" type="java.lang.String">
-            <column name="COMENTARIO" />
+
+		<property name="comentario">
+            <column name="comentario" />
         </property>
 
         <!--un pasajero me hizo-->
-        <many-to-one name="hecha_por" class="Pasajero" unique="true" fetch="join">
-            <column name="ID_PASAJERO" />
+        <many-to-one name="hecha_por">
+            <column name="id_pasajero" />
         </many-to-one>
+
         <!--un viaje me tiene-->
-        <many-to-one name="para_viaje" class="Viaje" unique="true" fetch="join">
-            <column name="ID_VIAJE" />
+        <many-to-one name="soy_de">
+            <column name="id_viaje" />
         </many-to-one>
 		
 	</class>

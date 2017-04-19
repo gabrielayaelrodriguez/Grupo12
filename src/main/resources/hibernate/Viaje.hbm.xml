@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
-"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<hibernate-mapping package="clases">
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
-	<class name="Viaje" table="VIAJE">
-		<id name="id_viaje" type="int">
-            <column name="ID_VIAJE" />
+<hibernate-mapping package="clases">
+	<class name="Viaje">
+
+		<id name="id_viaje">
             <generator class="native" />
         </id>
-        <property name="max_pasajeros" type="int">
+
+        <property name="max_pasajeros">
             <column name="MAX_PASAJEROS" />
         </property>
 		<property name="finalizado" type="boolean">
@@ -27,6 +28,27 @@
             <column name="FECHA" />
         </property>
 
+<!--
+
+        <list name="calificaciones" cascade="all" inverse="false" >
+                <key>
+                    <column name="id_viaje"  />
+                </key>
+                 <one-to-many class="Calificacion" />
+        </list>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <list name="pasajeros" table="PAS_VIAJES" lazy="true">
             <key column="ID_VIAJE" />
@@ -42,7 +64,7 @@
 
 		
 		
-<!--         <many-to-one name="conductor"
+         <many-to-one name="conductor"
 		 	column="ID_USUARIO"
 			unique="true"
 			not-null="true"
