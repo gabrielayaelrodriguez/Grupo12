@@ -20,16 +20,18 @@
             <column name="f_ingreso" />
         </property>
 
-        <many-to-one name="muber">
-            <column name="id_muber" />
-        </many-to-one>
+        
 			
 
 
         <union-subclass name="Conductor">
 
 
-        	<property name="f_licencia">
+        	<many-to-one name="muber">
+                <column name="id_muber" />
+            </many-to-one>
+
+            <property name="f_licencia">
         	    <column name="f_licencia" />
         	</property>
 
@@ -47,6 +49,10 @@
 		</union-subclass>     
 
 		<union-subclass name="Pasajero">
+
+            <many-to-one name="muber">
+                <column name="id_muber" />
+            </many-to-one>
 
 			<property name="credito">
 	            <column name="credito" />

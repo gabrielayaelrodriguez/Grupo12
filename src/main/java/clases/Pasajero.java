@@ -3,7 +3,7 @@ package clases;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,17 +11,19 @@ public class Pasajero extends Usuario {
 	private float credito;
 	private Set<Viaje> viajes;
 	private List<Calificacion> calificaciones;
+	private Muber muber;
 
 	public Pasajero(){
 	
 	}
 
-	public Pasajero(String nombre, String contrasenia, float credito){
+	public Pasajero(String nombre, String contrasenia, float credito, Muber muber){
 		
 		super(nombre, contrasenia);
 		this.credito=credito;
 		this.viajes = new HashSet<Viaje>();
 		this.calificaciones = new ArrayList<Calificacion>();
+		this.setMuber(muber);
 		
 
 		
@@ -72,6 +74,14 @@ public class Pasajero extends Usuario {
 	public void cobrar(float acobrar) {
 		this.credito=this.credito - acobrar;
 		
+	}
+
+	public Muber getMuber() {
+		return muber;
+	}
+
+	public void setMuber(Muber muber) {
+		this.muber = muber;
 	}
 
 }

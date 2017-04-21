@@ -6,7 +6,7 @@ package clases;
 //import org.hibernate.service.ServiceRegistryBuilder;
 //import org.hibernate.cfg.Configuration;
 import org.hibernate.tool.hbm2ddl.SchemaExport;
-import java.time.LocalDateTime;
+import java.util.Date;
 //estos son los "nuevos"
 
 import org.hibernate.Session;

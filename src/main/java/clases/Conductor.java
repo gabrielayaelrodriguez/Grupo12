@@ -1,34 +1,36 @@
 package clases;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Conductor extends Usuario {
 	private List<Viaje> viajes;
 	private List<Calificacion> calificaciones;
-	private LocalDateTime f_licencia;
+	private Date f_licencia;
+	private Muber muber;
 	//private int id_conductor;
 
     public Conductor(){
     	
     }
     
-    public Conductor(String nombre, String contrasenia , LocalDateTime f_licencia){
+    public Conductor(String nombre, String contrasenia , Date f_licencia, Muber muber){
 		
 		super(nombre, contrasenia);
 		this.viajes = new ArrayList<Viaje>();
 		this.f_licencia=f_licencia;
 		this.calificaciones = new ArrayList<Calificacion>();
+		this.setMuber(muber);
 		
 			
 	}
     
-    public Viaje crearViaje(String origen, String destino, int maxpasajeros, float costo) {
-    	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this);
-		this.viajes.add(viaje);
-		return viaje;
-    }
+   // public Viaje crearViaje(String origen, String destino, int maxpasajeros, float costo) {
+   // 	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this, this.muber);
+//		this.viajes.add(viaje);
+//		return viaje;
+  //  }
 
     public void agregarCalificacion(Calificacion c){
     	//System.out.println(c.getComentario());
@@ -46,11 +48,11 @@ public class Conductor extends Usuario {
 		this.viajes = viajes;
 	}
 
-	public LocalDateTime getF_licencia() {
+	public Date getF_licencia() {
 		return f_licencia;
 	}
 
-	public void setF_licencia(LocalDateTime f_licencia) {
+	public void setF_licencia(Date f_licencia) {
 		this.f_licencia = f_licencia;
 	}
 
@@ -60,6 +62,14 @@ public class Conductor extends Usuario {
 
 	public void setCalificaciones(List<Calificacion> calificaciones) {
 		this.calificaciones = calificaciones;
+	}
+
+	public Muber getMuber() {
+		return muber;
+	}
+
+	public void setMuber(Muber muber) {
+		this.muber = muber;
 	}
 
 	//public int getId_conductor() {

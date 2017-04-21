@@ -1,22 +1,22 @@
 package clases;
-import java.sql.Date;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class Viaje {
-	private int id_viaje;
-	private int max_pasajeros;
+	private Integer id_viaje;
+	private Integer max_pasajeros;
 	private boolean finalizado;
 	private String destino;
 	private String origen;
 	private float costo;
-	private LocalDateTime fecha;
+	private Date fecha;
 	private List<Calificacion> calificaciones;
 	private Set<Pasajero> pasajeros;
 	private Conductor conducido_por;
+	private Muber muber;
 	
 	public Viaje(){
 		
@@ -29,7 +29,7 @@ public class Viaje {
 		this.destino=destino;
 		this.origen=origen;
 		this.costo=costo;
-		this.fecha=LocalDateTime.now();
+		this.fecha=new Date();
 		this.max_pasajeros=maxpasajeros;
 		this.pasajeros = new HashSet<Pasajero>();
 		this.conducido_por = conducido_por;
@@ -66,10 +66,10 @@ public class Viaje {
 	}
 	
 	
-	public int getId_viaje() {
+	public Integer getId_viaje() {
 		return id_viaje;
 	}
-	public void setId_viaje(int id_viaje) {
+	public void setId_viaje(Integer id_viaje) {
 		this.id_viaje = id_viaje;
 	}
 	public boolean isFinalizado() {
@@ -96,16 +96,16 @@ public class Viaje {
 	public void setCosto(float costo) {
 		this.costo = costo;
 	}
-	public LocalDateTime getFecha() {
+	public Date getFecha() {
 		return fecha;
 	}
-	public void setFecha(LocalDateTime fecha) {
+	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public int getMax_pasajeros() {
+	public Integer getMax_pasajeros() {
 		return max_pasajeros;
 	}
-	public void setMax_pasajeros(int max_pasajeros) {
+	public void setMax_pasajeros(Integer max_pasajeros) {
 		this.max_pasajeros = max_pasajeros;
 	}
 	public List<Calificacion> getCalificaciones() {
@@ -121,6 +121,16 @@ public class Viaje {
 	}
 	public void setConducido_por(Conductor conducido_por) {
 		this.conducido_por = conducido_por;
+	}
+
+
+	public Muber getMuber() {
+		return muber;
+	}
+
+
+	public void setMuber(Muber muber) {
+		this.muber = muber;
 	}
 
 
