@@ -32,15 +32,12 @@
             <column name="id_muber" />
         </many-to-one>
 
-        <list name="calificaciones" cascade="all" inverse="false" >
+        <set name="calificaciones" cascade="all" inverse="false" >
                 <key>
                     <column name="id_viaje"  />
                 </key>
-                <list-index>
-                    <column name="index"  />
-                </list-index>
                  <one-to-many class="Calificacion" />
-        </list>
+        </set>
 
         <set name="pasajeros" table="pasajero_viaje"  cascade="all" inverse="false"  >
              <key>

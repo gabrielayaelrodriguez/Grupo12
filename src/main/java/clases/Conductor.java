@@ -1,11 +1,13 @@
 package clases;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class Conductor extends Usuario {
-	private List<Viaje> viajes;
+	private Set<Viaje> viajes;
 	private List<Calificacion> calificaciones;
 	private Date f_licencia;
 	private Muber muber;
@@ -18,7 +20,7 @@ public class Conductor extends Usuario {
     public Conductor(String nombre, String contrasenia , Date f_licencia, Muber muber){
 		
 		super(nombre, contrasenia);
-		this.viajes = new ArrayList<Viaje>();
+		this.viajes = new HashSet<Viaje>();
 		this.f_licencia=f_licencia;
 		this.calificaciones = new ArrayList<Calificacion>();
 		this.setMuber(muber);
@@ -40,11 +42,11 @@ public class Conductor extends Usuario {
     }
     //geters y setters
     
-	public List<Viaje> getViajes() {
+	public Set<Viaje> getViajes() {
 		return viajes;
 	}
 
-	public void setViajes(List<Viaje> viajes) {
+	public void setViajes(Set<Viaje> viajes) {
 		this.viajes = viajes;
 	}
 

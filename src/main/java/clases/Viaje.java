@@ -6,14 +6,14 @@ import java.util.List;
 import java.util.Set;
 
 public class Viaje {
-	private Integer id_viaje;
-	private Integer max_pasajeros;
+	private int id_viaje;
+	private int max_pasajeros;
 	private boolean finalizado;
 	private String destino;
 	private String origen;
 	private float costo;
 	private Date fecha;
-	private List<Calificacion> calificaciones;
+	private Set<Calificacion> calificaciones;
 	private Set<Pasajero> pasajeros;
 	private Conductor conducido_por;
 	private Muber muber;
@@ -33,7 +33,7 @@ public class Viaje {
 		this.max_pasajeros=maxpasajeros;
 		this.pasajeros = new HashSet<Pasajero>();
 		this.conducido_por = conducido_por;
-		this.calificaciones = new ArrayList<Calificacion>();
+		this.calificaciones = new HashSet<Calificacion>();
 	}
 	
 	
@@ -66,10 +66,10 @@ public class Viaje {
 	}
 	
 	
-	public Integer getId_viaje() {
+	public int getId_viaje() {
 		return id_viaje;
 	}
-	public void setId_viaje(Integer id_viaje) {
+	public void setId_viaje(int id_viaje) {
 		this.id_viaje = id_viaje;
 	}
 	public boolean isFinalizado() {
@@ -102,17 +102,17 @@ public class Viaje {
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
 	}
-	public Integer getMax_pasajeros() {
+	public int getMax_pasajeros() {
 		return max_pasajeros;
 	}
-	public void setMax_pasajeros(Integer max_pasajeros) {
+	public void setMax_pasajeros(int max_pasajeros) {
 		this.max_pasajeros = max_pasajeros;
 	}
-	public List<Calificacion> getCalificaciones() {
+	public Set<Calificacion> getCalificaciones() {
 		return calificaciones;
 	}
 
-	public void setCalificaciones(ArrayList<Calificacion> calificaciones) {
+	public void setCalificaciones(HashSet<Calificacion> calificaciones) {
 		this.calificaciones = calificaciones;
 	}
 	

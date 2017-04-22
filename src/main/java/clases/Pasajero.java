@@ -10,7 +10,7 @@ import java.util.Set;
 public class Pasajero extends Usuario {
 	private float credito;
 	private Set<Viaje> viajes;
-	private List<Calificacion> calificaciones;
+	private Set<Calificacion> calificaciones;
 	private Muber muber;
 
 	public Pasajero(){
@@ -22,7 +22,7 @@ public class Pasajero extends Usuario {
 		super(nombre, contrasenia);
 		this.credito=credito;
 		this.viajes = new HashSet<Viaje>();
-		this.calificaciones = new ArrayList<Calificacion>();
+		this.calificaciones = new HashSet<Calificacion>();
 		this.setMuber(muber);
 		
 
@@ -47,11 +47,11 @@ public class Pasajero extends Usuario {
 	
 	
 	
-	public List<Calificacion> getCalificaciones() {
+	public Set<Calificacion> getCalificaciones() {
 		return calificaciones;
 	}
 
-	public void setCalificaciones(List<Calificacion> calificaciones) {
+	public void setCalificaciones(Set<Calificacion> calificaciones) {
 		this.calificaciones = calificaciones;
 	}
 

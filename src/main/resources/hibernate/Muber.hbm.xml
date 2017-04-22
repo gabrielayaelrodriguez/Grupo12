@@ -8,35 +8,26 @@
 			  <generator class="native"/>
 		</id>
 	
-	<list name="conductores" cascade="all" inverse="false" >
+	<set name="conductores" cascade="all" inverse="false" >
         <key>
             <column name="id_conductor"  />
         </key>
-        <list-index>
-            <column name="index"  />
-        </list-index>
          <one-to-many class="Conductor" />
-    </list>
+    </set>
 
-    <list name="pasajeros" cascade="all" inverse="false" >
+    <set name="pasajeros" cascade="all" inverse="false" >
         <key>
             <column name="id_pasajero"  />
         </key>
-        <list-index>
-            <column name="index"  />
-        </list-index>
          <one-to-many class="Pasajero" />
-    </list>
+    </set>
 
-    <list name="viajes" cascade="all" inverse="false" >
+    <set name="viajes" cascade="all" inverse="false" >
         <key>
             <column name="id_viaje"  />
         </key>
-        <list-index>
-            <column name="index"  />
-        </list-index>
          <one-to-many class="Viaje" />
-    </list>
+    </set>
 
 	</class>
 </hibernate-mapping>
