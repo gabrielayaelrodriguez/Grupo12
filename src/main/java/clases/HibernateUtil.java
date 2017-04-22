@@ -28,23 +28,23 @@ public class HibernateUtil
         return sessionFactory;
     }
    public static void  crearSchema(){
-	 //borra si existe el esquema en la base de datos asi no hay conflictos y asi deja libre para cargar la nueva version de las tablas
-		System.out.println("drop ");
+	 //borra si existe el esquema en la base de datos asi no hay conflictos y deja libre para cargar la nueva version de las tablas
+		System.out.println("DROPPING SCHEMA");
 		new SchemaExport(conf).drop(true, true);
 		
 		//genera las tablas
-		System.out.println("crea el schema.");
+		System.out.println("CREANDO SCHEMA");
 		new SchemaExport(conf).create(true, true);
 	   
 	   
 	 } 
    public static void cerrar(Session session ){
-	   System.out.println("enpesando a cerrar...");
+	   System.out.println("EMPEZANDO A CERRAR...");
 	    session.getTransaction().commit();
 		session.flush();
 		session.close();
 		sessionFactory.close(); 
-		System.out.println("Cerro!!!!!!");
+		System.out.println("SESION CERRADA");
 	   
 	   
    }

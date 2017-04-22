@@ -1,8 +1,6 @@
 package clases;
 import java.util.Date;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Viaje {
@@ -24,7 +22,7 @@ public class Viaje {
 	
 	
 	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conducido_por,Muber muber) {
-		// TODO Auto-generated constructor stub
+		
 		this.finalizado=false;
 		this.destino=destino;
 		this.origen=origen;
@@ -48,11 +46,16 @@ public class Viaje {
 	}
 	
 	public void finalizar() {
-		float acobrar = this.costo / this.pasajeros.size();
-		for(Pasajero p : this.pasajeros) {
-            p.cobrar(acobrar);
-        }
-		this.setFinalizado(true);
+		if (!this.getFinalizado()){
+			float acobrar = this.costo / this.pasajeros.size();
+			for(Pasajero p : this.pasajeros) {
+	            p.cobrar(acobrar);
+	        }
+			this.setFinalizado(true);
+		}
+		else{
+			System.out.println("viaje ya finalizado");
+		}
 	}
 	
 	public void agregarCalificacion(Calificacion calif) {

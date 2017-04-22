@@ -11,7 +11,6 @@ public class Conductor extends Usuario {
 	private List<Calificacion> calificaciones;
 	private Date f_licencia;
 	private Muber muber;
-	//private int id_conductor;
 
     public Conductor(){
     	
@@ -70,7 +69,7 @@ public class Conductor extends Usuario {
     	
     	
     }
-    //geters y setters
+    //getters y setters
     
 	public Set<Viaje> getViajes() {
 		return viajes;
@@ -104,11 +103,4 @@ public class Conductor extends Usuario {
 		this.muber = muber;
 	}
 
-	//public int getId_conductor() {
-	//	return id_conductor;
-	//}
-
-	//public void setId_conductor(int id_conductor) {
-	//	this.id_conductor = id_conductor;
-	//}
 }
