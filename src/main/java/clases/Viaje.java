@@ -23,7 +23,7 @@ public class Viaje {
 	}
 	
 	
-	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conducido_por) {
+	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conducido_por,Muber muber) {
 		// TODO Auto-generated constructor stub
 		this.finalizado=false;
 		this.destino=destino;
@@ -34,6 +34,8 @@ public class Viaje {
 		this.pasajeros = new HashSet<Pasajero>();
 		this.conducido_por = conducido_por;
 		this.calificaciones = new HashSet<Calificacion>();
+		this.muber=muber;
+		muber.getViajes().add(this);
 	}
 	
 	
@@ -50,6 +52,7 @@ public class Viaje {
 		for(Pasajero p : this.pasajeros) {
             p.cobrar(acobrar);
         }
+		this.setFinalizado(true);
 	}
 	
 	public void agregarCalificacion(Calificacion calif) {
@@ -72,7 +75,7 @@ public class Viaje {
 	public void setId_viaje(int id_viaje) {
 		this.id_viaje = id_viaje;
 	}
-	public boolean isFinalizado() {
+	public boolean getFinalizado() {
 		return finalizado;
 	}
 	public void setFinalizado(boolean finalizado) {
@@ -112,7 +115,7 @@ public class Viaje {
 		return calificaciones;
 	}
 
-	public void setCalificaciones(HashSet<Calificacion> calificaciones) {
+	public void setCalificaciones(Set<Calificacion> calificaciones) {
 		this.calificaciones = calificaciones;
 	}
 	

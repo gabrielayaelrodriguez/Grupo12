@@ -23,15 +23,20 @@ public class Pasajero extends Usuario {
 		this.credito=credito;
 		this.viajes = new HashSet<Viaje>();
 		this.calificaciones = new HashSet<Calificacion>();
-		this.setMuber(muber);
+		this.muber=muber;
+		muber.getPasajeros().add(this);
 		
 
 		
 	}
 	
-	public void agregarViaje(Viaje viaje) {
+	public void agregarse(Viaje viaje) {
+		if(!viaje.getFinalizado()){
 		    viaje.agregarPasajero(this);
 			this.viajes.add(viaje);
+		}else{
+			System.out.println("viaje finalizado");
+		}
 	}
 	
 	public Calificacion calificar(int puntaje, String comentario, Viaje viaje) {
@@ -40,6 +45,10 @@ public class Pasajero extends Usuario {
 		
 		viaje.agregarCalificacion(calif);
 		return calif;
+	}
+	public void cobrar(float acobrar) {
+		this.credito=this.credito - acobrar;
+		
 	}
 	
 	
@@ -71,10 +80,6 @@ public class Pasajero extends Usuario {
 		this.viajes = viajes;
 	}
 
-	public void cobrar(float acobrar) {
-		this.credito=this.credito - acobrar;
-		
-	}
 
 	public Muber getMuber() {
 		return muber;

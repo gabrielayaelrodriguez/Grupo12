@@ -23,17 +23,47 @@ public class Conductor extends Usuario {
 		this.viajes = new HashSet<Viaje>();
 		this.f_licencia=f_licencia;
 		this.calificaciones = new ArrayList<Calificacion>();
-		this.setMuber(muber);
-		
+		this.muber=muber;
+	    muber.getConductores().add(this);
 			
 	}
     
-   // public Viaje crearViaje(String origen, String destino, int maxpasajeros, float costo) {
-   // 	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this, this.muber);
-//		this.viajes.add(viaje);
-//		return viaje;
-  //  }
+    public Viaje registrarViaje(String origen, String destino, int maxpasajeros, float costo,Muber muber) {
+    	if(this.getF_licencia().after(new Date()) ){
+		   	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this, muber);
+			this.viajes.add(viaje);
+			return viaje;
+    	}else{
+    		
+    		return null;
+    		
+    		
+    	}
+   }
+    public void mostrarInformacion(){
+    	System.out.println("datos del conductor: ");
+    	System.out.println("-------------------");
+    	System.out.println("NOMBRE:"+ this.getNombre());
+    	System.out.println("PROMEDIO:" + this.calificacionPromedio());
+    	System.out.println("FECHA LICENCIA:"+ this.getF_licencia());
+    	System.out.println("VIAJES:");
+    	for (Viaje v: this.getViajes()){
+ 		    System.out.println("ORIGEN:"+v.getOrigen()+"; DESTINO:"+v.getDestino()+"; COSTO:"+v.getCosto());
+    	}	
+    	
+    }
+    
+    public float calificacionPromedio(){
+    	float prom=0;
+    	for (Calificacion c: this.getCalificaciones()){
+    		   prom= prom + c.getPuntaje();
+    		
+    	}
+    	prom= prom / this.getCalificaciones().size();	
+    	return	prom;
 
+    	
+    }
     public void agregarCalificacion(Calificacion c){
     	//System.out.println(c.getComentario());
     	this.calificaciones.add(c);
