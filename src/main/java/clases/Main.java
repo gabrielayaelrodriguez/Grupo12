@@ -41,8 +41,9 @@ public class Main {
 		
 		System.out.println("-------------------");
 		System.out.println("PUNTO 4.d");
+		roberto.finalizar(viaje);
+		System.out.println("-------------------");
 		
-		viaje.finalizar();
 		session.save(muber);
 		session.save(german);
 		session.save(alicia);
