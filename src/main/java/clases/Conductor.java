@@ -75,6 +75,10 @@ public class Conductor extends Usuario {
     	
     	
     }
+    public void finalizar(Viaje v){
+    	v.finalizar();
+    	
+    }
     //getters y setters
     
 	public Set<Viaje> getViajes() {
