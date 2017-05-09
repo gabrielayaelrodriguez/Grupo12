@@ -2,7 +2,7 @@ package clases;
 
 public class Calificacion {
 	
-private int id_calificacion;
+private long id_calificacion;
 private int puntaje;
 private Pasajero hecha_por;
 private String comentario;
@@ -22,10 +22,10 @@ public Calificacion(int puntaje, String comentario, Pasajero pas, Viaje viaje){
     
 }
 
-public int getId_calificacion() {
+public long getId_calificacion() {
 	return id_calificacion;
 }
-public void setId_calificacion(int id_calificacion) {
+public void setId_calificacion(long id_calificacion) {
 	this.id_calificacion = id_calificacion;
 }
 

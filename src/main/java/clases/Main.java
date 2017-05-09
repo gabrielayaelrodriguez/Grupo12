@@ -10,10 +10,11 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-	
+		//abrimos la sesión
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		session.beginTransaction();
 		
+		//empezamos a instanciar y hacer lo pedido en el enunciado
 		
 		Muber muber= new Muber();
 		
@@ -34,24 +35,19 @@ public class Main {
 		System.out.println("-------------------");
 		System.out.println("PUNTO 4.c");
 		
-		Calificacion c1= german.calificar(5, "excelente viaje", viaje);
-		Calificacion c2= alicia.calificar(4, "buen viaje", viaje);
-		Calificacion c3= margarita.calificar(4, "bien", viaje);
+		german.calificar(5, "excelente viaje", viaje);
+		alicia.calificar(4, "buen viaje", viaje);
+		margarita.calificar(4, "bien", viaje);
 		
 		
 		System.out.println("-------------------");
 		System.out.println("PUNTO 4.d");
 		
 		viaje.finalizar();
+		
+		//guardamos sólo muber por la persistencia por alcance
+		
 		session.save(muber);
-		session.save(german);
-		session.save(alicia);
-		session.save(margarita);
-		session.save(roberto);
-		session.save(viaje);
-		session.save(c1);
-		session.save(c2);
-		session.save(c3);
 		
 		System.out.println("INFORMACIÓN DEL CONDUCTOR");
 		
@@ -61,7 +57,9 @@ public class Main {
 		System.out.println("CONDUCTORES");
 		muber.listarConductores();
 		System.out.println("-------------------");
+		
 		//no hay viajes abiertos porque se finalizó el único que había
+		
 		System.out.println("VIAJES ABIERTOS");
 		muber.listarViajesAbiertos();
 		System.out.println("-------------------");

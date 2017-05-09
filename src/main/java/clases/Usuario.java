@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Usuario {
 	
-private Integer id_usuario;
+private long id_usuario;
 protected String nombre;
 protected String contrasenia;
 protected Date f_ingreso;
@@ -19,10 +19,10 @@ public Usuario(String nombre, String contrasenia) {
 public Usuario(){
 }
 
-public Integer getId_usuario() {
+public long getId_usuario() {
 	return id_usuario;
 }
-public void setId_usuario(Integer id_usuario) {
+public void setId_usuario(long id_usuario) {
 	this.id_usuario = id_usuario;
 }
 public String getNombre() {

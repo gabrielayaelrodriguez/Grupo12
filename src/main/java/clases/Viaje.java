@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Viaje {
-	private int id_viaje;
+	private long id_viaje;
 	private int max_pasajeros;
 	private boolean finalizado;
 	private String destino;
@@ -45,6 +45,8 @@ public class Viaje {
 		
 	}
 	
+	//finaliza un viaje y se cobra a los pasajeros, sólo se puede finalizar una vez
+	
 	public void finalizar() {
 		if (!this.getFinalizado()){
 			float acobrar = this.costo / this.pasajeros.size();
@@ -72,10 +74,10 @@ public class Viaje {
 	}
 	
 	
-	public int getId_viaje() {
+	public long getId_viaje() {
 		return id_viaje;
 	}
-	public void setId_viaje(int id_viaje) {
+	public void setId_viaje(long id_viaje) {
 		this.id_viaje = id_viaje;
 	}
 	public boolean getFinalizado() {

@@ -27,6 +27,8 @@ public class Conductor extends Usuario {
 			
 	}
     
+    //un conductor registra un viaje nuevo
+    
     public Viaje registrarViaje(String origen, String destino, int maxpasajeros, float costo,Muber muber) {
     	if(this.getF_licencia().after(new Date()) ){
 		   	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this, muber);
@@ -39,6 +41,9 @@ public class Conductor extends Usuario {
     		
     	}
    }
+    
+    //mostrar datos del conductor
+    
     public void mostrarInformacion(){
     	System.out.println("datos del conductor: ");
     	System.out.println("-------------------");
@@ -52,6 +57,8 @@ public class Conductor extends Usuario {
     	
     }
     
+    //calificación promedio del conductor
+    
     public float calificacionPromedio(){
     	float prom=0;
     	for (Calificacion c: this.getCalificaciones()){
@@ -64,7 +71,6 @@ public class Conductor extends Usuario {
     	
     }
     public void agregarCalificacion(Calificacion c){
-    	//System.out.println(c.getComentario());
     	this.calificaciones.add(c);
     	
     	

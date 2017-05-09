@@ -28,6 +28,8 @@ public class Pasajero extends Usuario {
 		
 	}
 	
+	//un pasajero se agrega al viaje que desea 
+	
 	public void agregarse(Viaje viaje) {
 		if(!viaje.getFinalizado()){
 		    viaje.agregarPasajero(this);
@@ -36,6 +38,8 @@ public class Pasajero extends Usuario {
 			System.out.println("viaje finalizado");
 		}
 	}
+	
+	//un pasajero califica un viaje
 	
 	public Calificacion calificar(int puntaje, String comentario, Viaje viaje) {
 		

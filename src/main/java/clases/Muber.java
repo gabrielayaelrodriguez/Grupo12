@@ -1,8 +1,6 @@
 package clases;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Muber {
@@ -10,7 +8,7 @@ public class Muber {
 	private Set<Conductor> conductores;
     private Set<Pasajero> pasajeros;
 	private Set<Viaje> viajes;
-	private int id_muber;
+	private long id_muber;
 
 	public Muber(){
 		
@@ -70,11 +68,11 @@ public class Muber {
 		this.viajes = viajes;
 	}
 
-	public int getId_muber() {
+	public long getId_muber() {
 		return id_muber;
 	}
 
-	public void setId_muber(int id_muber) {
+	public void setId_muber(long id_muber) {
 		this.id_muber = id_muber;
 	}
 
