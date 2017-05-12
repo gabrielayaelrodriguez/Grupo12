@@ -20,7 +20,9 @@ public class Main {
 		
         System.out.println("PUNTO 4.a");
 		Conductor roberto = new Conductor("Roberto","1234",new GregorianCalendar(2020, 2, 20).getTime(), muber);
-		Viaje viaje = roberto.registrarViaje("La Plata","Tres Arroyos", 4, 900, muber);
+		Viaje viaje = roberto.registrarViaje("La Plata","Tres Arroyos", 4, 900);
+		Viaje v1 = roberto.registrarViaje("La Plata","Buenos Aires", 4,500);
+		Viaje v2 = roberto.registrarViaje("Moron","La Plata", 1, 12900);
 		
 		System.out.println("PUNTO 4.b");
 		
@@ -68,7 +70,7 @@ public class Main {
 		System.out.println("PASAJEROS");
 		muber.listarPasajeros();
 		System.out.println("-------------------");
-			
+		
 		
 		HibernateUtil.cerrar(session);
 		

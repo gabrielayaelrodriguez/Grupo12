@@ -14,14 +14,13 @@ public class Viaje {
 	private Set<Calificacion> calificaciones;
 	private Set<Pasajero> pasajeros;
 	private Conductor conducido_por;
-	private Muber muber;
 	
 	public Viaje(){
 		
 	}
 	
 	
-	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conducido_por,Muber muber) {
+	public Viaje(String origen, String destino, int maxpasajeros, float costo, Conductor conducido_por) {
 		
 		this.finalizado=false;
 		this.destino=destino;
@@ -32,8 +31,7 @@ public class Viaje {
 		this.pasajeros = new HashSet<Pasajero>();
 		this.conducido_por = conducido_por;
 		this.calificaciones = new HashSet<Calificacion>();
-		this.muber=muber;
-		muber.getViajes().add(this);
+		
 	}
 	
 	
@@ -132,15 +130,7 @@ public class Viaje {
 	}
 
 
-	public Muber getMuber() {
-		return muber;
-	}
-
-
-	public void setMuber(Muber muber) {
-		this.muber = muber;
-	}
-
+	
 
 	
 

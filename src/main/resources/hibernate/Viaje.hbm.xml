@@ -28,10 +28,6 @@
             <column name="fecha" />
         </property>
 
-        <many-to-one name="muber">
-            <column name="id_muber" />
-        </many-to-one>
-
         <set name="calificaciones" cascade="all" inverse="false" >
                 <key>
                     <column name="id_viaje"  />
@@ -46,7 +42,7 @@
              <many-to-many column="id_usuario" class="Pasajero" />
         </set>
 
-        <!--un conductor me hizo-->
+        
         <many-to-one name="conducido_por">
             <column name="id_conductor" />
         </many-to-one>

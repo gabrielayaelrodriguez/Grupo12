@@ -29,9 +29,9 @@ public class Conductor extends Usuario {
     
     //un conductor registra un viaje nuevo
     
-    public Viaje registrarViaje(String origen, String destino, int maxpasajeros, float costo,Muber muber) {
+    public Viaje registrarViaje(String origen, String destino, int maxpasajeros, float costo) {
     	if(this.getF_licencia().after(new Date()) ){
-		   	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this, muber);
+		   	Viaje viaje = new Viaje(origen, destino, maxpasajeros, costo, this);
 			this.viajes.add(viaje);
 			return viaje;
     	}else{

@@ -22,12 +22,5 @@
          <one-to-many class="Pasajero" />
     </set>
 
-    <set name="viajes" cascade="all" inverse="false" >
-        <key>
-            <column name="id_viaje"  />
-        </key>
-         <one-to-many class="Viaje" />
-    </set>
-
 	</class>
 </hibernate-mapping>
