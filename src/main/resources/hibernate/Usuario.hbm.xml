@@ -35,7 +35,7 @@
         	    <column name="f_licencia" />
         	</property>
 
-            <set name="viajes" cascade="all" inverse="false" >
+            <set name="viajes" cascade="all" inverse="true" >
                 <key>
                     <column name="id_conductor"  />
                 </key>
@@ -55,7 +55,7 @@
 	            <column name="credito" />
 	        </property>
 
-            <set name="calificaciones" cascade="all" inverse="false" >
+            <set name="calificaciones" cascade="all" inverse="true" >
                 <key>
                     <column name="id_pasajero"  />
                 </key>

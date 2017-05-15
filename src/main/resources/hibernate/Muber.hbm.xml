@@ -10,14 +10,14 @@
 	
 	<set name="conductores" cascade="all" inverse="false" >
         <key>
-            <column name="id_conductor"  />
+            <column name="id_muber"  />
         </key>
          <one-to-many class="Conductor" />
     </set>
 
     <set name="pasajeros" cascade="all" inverse="false" >
         <key>
-            <column name="id_pasajero"  />
+            <column name="id_muber"  />
         </key>
          <one-to-many class="Pasajero" />
     </set>

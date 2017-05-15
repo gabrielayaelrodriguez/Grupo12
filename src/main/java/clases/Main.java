@@ -21,8 +21,12 @@ public class Main {
         System.out.println("PUNTO 4.a");
 		Conductor roberto = new Conductor("Roberto","1234",new GregorianCalendar(2020, 2, 20).getTime(), muber);
 		Viaje viaje = roberto.registrarViaje("La Plata","Tres Arroyos", 4, 900);
-		Viaje v1 = roberto.registrarViaje("La Plata","Buenos Aires", 4,500);
-		Viaje v2 = roberto.registrarViaje("Moron","La Plata", 1, 12900);
+		
+		
+		//estos son para que haya viajes abiertos en la salida
+		
+		roberto.registrarViaje("La Plata","Buenos Aires", 4,500);
+		roberto.registrarViaje("Moron","La Plata", 1, 12900);
 		
 		System.out.println("PUNTO 4.b");
 		
@@ -47,7 +51,6 @@ public class Main {
 		roberto.finalizar(viaje);
 		System.out.println("-------------------");
 		
-		viaje.finalizar();
 		
 		//guardamos sólo muber por la persistencia por alcance
 		
@@ -62,7 +65,7 @@ public class Main {
 		muber.listarConductores();
 		System.out.println("-------------------");
 		
-		//no hay viajes abiertos porque se finalizó el único que había
+		//dos viajes abiertos porque uno ya se finalizó
 		
 		System.out.println("VIAJES ABIERTOS");
 		muber.listarViajesAbiertos();
