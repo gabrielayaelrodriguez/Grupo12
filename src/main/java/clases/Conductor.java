@@ -2,13 +2,10 @@ package clases;
 
 import java.util.Date;
 import java.util.HashSet;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class Conductor extends Usuario {
 	private Set<Viaje> viajes;
-	private List<Calificacion> calificaciones;
 	private Date f_licencia;
 	private Muber muber;
 
@@ -21,7 +18,6 @@ public class Conductor extends Usuario {
 		super(nombre, contrasenia);
 		this.viajes = new HashSet<Viaje>();
 		this.f_licencia=f_licencia;
-		this.calificaciones = new ArrayList<Calificacion>();
 		this.muber=muber;
 	    muber.getConductores().add(this);
 			
@@ -61,20 +57,19 @@ public class Conductor extends Usuario {
     
     public float calificacionPromedio(){
     	float prom=0;
-    	for (Calificacion c: this.getCalificaciones()){
-    		   prom= prom + c.getPuntaje();
-    		
+    	int cant=0;
+    	for (Viaje v: this.getViajes()){
+    		 if(v.promedioViaje()>-1){
+    		   cant++;	 
+    		   prom= prom + v.promedioViaje();
+    		 }
     	}
-    	prom= prom / this.getCalificaciones().size();	
+    	prom= prom / cant;	
     	return	prom;
 
     	
     }
-    public void agregarCalificacion(Calificacion c){
-    	this.calificaciones.add(c);
-    	
-    	
-    }
+  
     public void finalizar(Viaje v){
     	v.finalizar();
     	
@@ -97,13 +92,7 @@ public class Conductor extends Usuario {
 		this.f_licencia = f_licencia;
 	}
 
-	public List<Calificacion> getCalificaciones() {
-		return calificaciones;
-	}
-
-	public void setCalificaciones(List<Calificacion> calificaciones) {
-		this.calificaciones = calificaciones;
-	}
+	
 
 	public Muber getMuber() {
 		return muber;

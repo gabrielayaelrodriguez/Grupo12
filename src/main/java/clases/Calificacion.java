@@ -17,8 +17,6 @@ public Calificacion(int puntaje, String comentario, Pasajero pas, Viaje viaje){
     this.comentario=comentario;
     this.hecha_por=pas;
     this.soy_de=viaje;
-    this.soy_de.getConducido_por().agregarCalificacion(this);
-   
     
 }
 

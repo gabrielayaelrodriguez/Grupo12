@@ -62,6 +62,25 @@ public class Viaje {
 		this.calificaciones.add(calif);
 		
 	}
+	
+	public float promedioViaje(){
+        float prom=-1;
+        if(this.getCalificaciones().size() > 0){
+        	prom=0;
+        	for (Calificacion c: this.getCalificaciones()){
+        		
+     		      prom= prom + c.getPuntaje();
+     		    
+     		}
+        	
+	     	prom= prom / this.getCalificaciones().size();
+	     	
+	     	return	prom;
+
+        }
+		return prom;
+		
+	}
 	//setters y getters
 	
 	public Set<Pasajero> getPasajeros() {
