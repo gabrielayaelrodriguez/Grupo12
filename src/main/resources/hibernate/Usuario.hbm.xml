@@ -64,7 +64,7 @@
 
             <set name="viajes" table="pasajero_viaje"  cascade="all" inverse="true"  >
                 <key>
-                    <column name="id_usuario"  />
+                    <column name="id_pasajero"  />
                 </key>
                 <many-to-many column="id_viaje" class="Viaje" />
             </set>
