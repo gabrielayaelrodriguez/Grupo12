@@ -31,7 +31,7 @@ public class Conductor extends Usuario {
 			this.viajes.add(viaje);
 			return viaje;
     	}else{
-    		
+    		System.out.println("no puede, licencia vencida");
     		return null;
     		
     		
@@ -71,8 +71,11 @@ public class Conductor extends Usuario {
     }
   
     public void finalizar(Viaje v){
-    	v.finalizar();
-    	
+    	if(v != null){
+    	   v.finalizar();
+    	}else{
+    		System.out.println("el viaje no existe");
+    	}
     }
     //getters y setters
     
