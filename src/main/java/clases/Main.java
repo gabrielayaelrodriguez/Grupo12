@@ -1,7 +1,11 @@
 package clases;
 
 import java.util.GregorianCalendar;
+import java.util.List;
+
 import org.hibernate.Session;
+
+
 
 
 public class Main {
@@ -20,47 +24,29 @@ public class Main {
 		
        
 		Conductor roberto = new Conductor("Roberto","1234",new GregorianCalendar(2020, 2, 20).getTime(), muber);
-		Viaje viaje = roberto.registrarViaje("La Plata","Tres Arroyos", 3, 900);
-		
-	
-		//estos son para que haya viajes abiertos en la salida
-		
-		roberto.registrarViaje("La Plata","Buenos Aires", 4,500);
-		roberto.registrarViaje("Moron","La Plata", 1, 12900);
-		
-		
+		Viaje viaje = roberto.registrarViaje("La Plata","Tres Arroyos", 4, 10000);
+				
 		
 		Pasajero german = new Pasajero("German", "g", 1500, muber);
 		Pasajero alicia = new Pasajero("Alicia", "a", 1500, muber );
 		Pasajero margarita = new Pasajero("Margarita", "m", 1500, muber);
-		Pasajero ruperta = new Pasajero("Ruperta", "m", 1500, muber);
+		
 		
 		german.agregarse(viaje);
 		alicia.agregarse(viaje);
 		margarita.agregarse(viaje);
 		
 		
-		german.calificar(5, "excelente viaje", viaje);
-		alicia.calificar(4, "buen viaje", viaje);
-		margarita.calificar(4, "bien", viaje);
-		session.save(muber);
-		
-		margarita.calificar(5, "bien", viaje);
-		
-		ruperta.calificar(5, "bien", viaje);
-		
-		roberto.finalizar(viaje);
-		
-		
-		
-		
-		
-		
-		
 		session.save(muber);
 		
 		
+		List<Pasajero> pasajeros= session.createQuery("from Pasajero").list();
 		
+		
+		for (Pasajero p: pasajeros){
+			
+			System.out.println(p.getNombre());
+		}
 	
 		
 		

@@ -34,7 +34,12 @@ public class Pasajero extends Usuario {
 		if(viaje == null){
 			System.out.println("el viaje no existe");
 		}else if(!viaje.getFinalizado()){
-		    viaje.agregarPasajero(this);
+			
+			if(!this.getViajes().add(viaje)){
+				System.out.println("Ya esta agregado en este viaje " + this.getNombre());
+			}else{
+		        viaje.agregarPasajero(this);
+			}
 		}else{
 			System.out.println("viaje finalizado");
 		}
